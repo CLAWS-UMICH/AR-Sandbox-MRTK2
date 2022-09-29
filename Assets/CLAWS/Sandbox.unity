@@ -3834,7 +3834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Slate with blank content area
+  m_text: APPLE???
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
   m_sharedMaterial: {fileID: 21202819797275496, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
@@ -5237,7 +5237,6 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 838f5f0d7354a6d47a88da29989d36da, type: 2}
   - {fileID: 2100000, guid: 838f5f0d7354a6d47a88da29989d36da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

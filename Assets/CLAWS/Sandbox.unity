@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 115558971}
   - component: {fileID: 115558970}
   m_Layer: 0
-  m_Name: SlateBlank(Clone)
+  m_Name: Patrick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -992,8 +992,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799324297093745374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0683, y: -0.1723187, z: 0.060496032}
-  m_LocalScale: {x: 0.83226997, y: 0.47105, z: 0.0352}
+  m_LocalPosition: {x: -0.068, y: -0.202, z: 0.056}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.0352}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 799324298779633970}
@@ -4201,7 +4201,6 @@ GameObject:
   - component: {fileID: 799324298779633996}
   - component: {fileID: 799324298779633995}
   - component: {fileID: 799324298779633994}
-  - component: {fileID: 799324298779633971}
   m_Layer: 0
   m_Name: Patrick
   m_TagString: Untagged
@@ -4216,7 +4215,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799324298779633993}
-  m_LocalRotation: {x: -0, y: 0.22764769, z: -0, w: 0.97374356}
+  m_LocalRotation: {x: 0, y: 0.2276456, z: 0, w: 0.9737441}
   m_LocalPosition: {x: 0.6581095, y: 0, z: 1.1120871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4455,36 +4454,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTetherWhenManipulating: 0
   IsBoundsHandles: 0
---- !u!114 &799324298779633971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799324298779633993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4684083f6dff4a1d8a790bccc354fcf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateLinkedTransform: 0
-  moveLerpTime: 0.1
-  rotateLerpTime: 0.1
-  scaleLerpTime: 0
-  maintainScaleOnInitialization: 1
-  smoothing: 1
-  lifetime: 0
-  referenceDirection: 1
-  minDistance: 1
-  maxDistance: 2
-  minViewDegrees: 0
-  maxViewDegrees: 30
-  aspectV: 1
-  ignoreAngleClamp: 0
-  ignoreDistanceClamp: 0
-  useFixedVerticalPosition: 0
-  fixedVerticalPosition: -0.4
-  orientToReferenceDirection: 0
 --- !u!1 &799324298823528604
 GameObject:
   m_ObjectHideFlags: 0
@@ -4515,7 +4484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799324298823528604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.068314, y: -0.172337, z: 0.058999836}
+  m_LocalPosition: {x: -0.068, y: -0.202, z: 0.055}
   m_LocalScale: {x: 0.82840943, y: 0.46715885, z: 0.4592}
   m_ConstrainProportionsScale: 0
   m_Children: []

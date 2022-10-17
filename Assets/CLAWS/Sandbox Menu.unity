@@ -408,6 +408,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8270661948553744730, guid: 9bd62ac262fb57f43bb38392b0e13c5f, type: 3}
   m_PrefabInstance: {fileID: 320157094}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &320157098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320157096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6cfd1549ee1489e8be7ddd52e9e3b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeSript: {fileID: 2018459382}
 --- !u!1001 &514223602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -415,6 +428,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2187424, guid: 87acf13bab6524cda95ce91de4571033, type: 3}
+      propertyPath: cubeSript
+      value: 
+      objectReference: {fileID: 2018459382}
     - target: {fileID: 5813609001024799720, guid: 87acf13bab6524cda95ce91de4571033, type: 3}
       propertyPath: m_Name
       value: Martha
@@ -776,6 +793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brian
       objectReference: {fileID: 0}
+    - target: {fileID: 2949416635950994517, guid: f4c03fe3e3cf2ad46943c022c0361275, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2949416635950994524, guid: f4c03fe3e3cf2ad46943c022c0361275, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1021,15 +1042,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4745337357136203293, guid: c6481819a3cf747459f0bc09d66d4f7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.3153043
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4745337357136203293, guid: c6481819a3cf747459f0bc09d66d4f7b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.120228
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4745337357136203293, guid: c6481819a3cf747459f0bc09d66d4f7b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.48626
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4745337357136203293, guid: c6481819a3cf747459f0bc09d66d4f7b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1538,6 +1559,118 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5c16c1c34a6f14cb5f68198e95db11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2018459381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2018459386}
+  - component: {fileID: 2018459385}
+  - component: {fileID: 2018459384}
+  - component: {fileID: 2018459383}
+  - component: {fileID: 2018459382}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2018459382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018459381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f41c947b9138bf44b3774edd91d8e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomNunber1: 0
+  _randomNumber2: 100
+--- !u!65 &2018459383
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018459381}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &2018459384
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018459381}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2018459385
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018459381}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2018459386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018459381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1442470378939128751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1756,35 +1889,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1803549621053999284, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1803549621053999284, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 320157096}
+      objectReference: {fileID: 320157095}
     - target: {fileID: 1803549621053999284, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 320157095}
+      objectReference: {fileID: 320157098}
     - target: {fileID: 1803549621053999284, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1803549621053999284, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 1803549621053999284, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
-      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetFollowMeBehavior
       objectReference: {fileID: 0}
     - target: {fileID: 1803549621053999284, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ToggleActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803549621053999284, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: Microsoft.MixedReality.Toolkit.UI.FollowMeToggle, Microsoft.MixedReality.Toolkit.SDK
       objectReference: {fileID: 0}
     - target: {fileID: 1803549621053999284, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Microsoft.MixedReality.Toolkit.UI.FollowMeToggle, Microsoft.MixedReality.Toolkit.SDK
+      value: MarthaToggleActive, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1803549621053999284, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
@@ -1837,6 +1970,26 @@ PrefabInstance:
     - target: {fileID: 1803549621296408900, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803549621450345686, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803549621450345686, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 99232634}
+    - target: {fileID: 1803549621450345686, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803549621450345686, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803549621450345686, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1803549622127314707, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
       propertyPath: m_RootOrder

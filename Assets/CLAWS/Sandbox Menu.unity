@@ -1811,6 +1811,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &427931253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8967228024737718150, guid: d0e022de98e6b44c88517484cc972b7e, type: 3}
+  m_PrefabInstance: {fileID: 8185472340374211926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &436323839
 GameObject:
   m_ObjectHideFlags: 0
@@ -9084,6 +9089,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1753583248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1803549621517860223, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+  m_PrefabInstance: {fileID: 1803549621889680444}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1753583250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753583248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29231dcb3c234dbaa543b4c07b3066f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screen: {fileID: 427931253}
 --- !u!1 &1759029903
 GameObject:
   m_ObjectHideFlags: 0
@@ -10739,6 +10762,22 @@ PrefabInstance:
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1803549621517860212, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1753583250}
+    - target: {fileID: 1803549621517860212, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: toggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803549621517860212, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ToggleZedong, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803549621517860223, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+      propertyPath: m_Name
+      value: Zedong
+      objectReference: {fileID: 0}
     - target: {fileID: 1803549622127314707, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -10841,6 +10880,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+--- !u!1 &1803549621889680445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1803549621445278205, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+  m_PrefabInstance: {fileID: 1803549621889680444}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1803549621889680446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803549621889680445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872b11826d1ee4db28f94e81b6328854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1803549621889680447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1803549621438728119, guid: 0ae1a71026d56864c9a4e8bde43b1157, type: 3}
+  m_PrefabInstance: {fileID: 1803549621889680444}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1803549621889680448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803549621889680447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1410eac1ae94b4d4492a09cc368e152c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  states: {fileID: 11400000, guid: 5eac1712038236e4b8ffdb3893804fe1, type: 2}
+  InputActionId: 0
+  isGlobal: 0
+  Dimensions: 1
+  dimensionIndex: 0
+  startDimensionIndex: 0
+  CanSelect: 1
+  CanDeselect: 1
+  voiceCommand: 
+  voiceRequiresFocus: 1
+  profiles:
+  - Target: {fileID: 0}
+    Themes:
+    - {fileID: 0}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Events: []
+  resetOnDestroy: 0
+  enabledOnStart: 1
 --- !u!1001 &8185472340374211926
 PrefabInstance:
   m_ObjectHideFlags: 0

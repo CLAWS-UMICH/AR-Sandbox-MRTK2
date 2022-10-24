@@ -14,6 +14,11 @@ public class BohnettClock : MonoBehaviour
 
     private Coroutine updateTimeCoroutine;
 
+    private void Start()
+    {
+        ScriptingTutorial2.StartCount();
+    }
+
 
     public void StartTimer()
     {

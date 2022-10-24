@@ -15,7 +15,6 @@ public class BohnettUI : MonoBehaviour
         string hours = LeadingZeroes(timeInHours);
 
         clock.text = hours + ":" + minutes + ":" + seconds;
-        
     }
 
     private string LeadingZeroes(int time)

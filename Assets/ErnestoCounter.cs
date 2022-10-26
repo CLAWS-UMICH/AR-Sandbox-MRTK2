@@ -10,11 +10,16 @@ public class ErnestoCounter : MonoBehaviour
     private TextMeshPro CurrentTime;
 
     private float _seconds = 0;
+    private bool _is_running = true;
 
     // Update is called once per frame
     void Update()
     {   
-        _seconds += 1 * Time.deltaTime;
+        if (_is_running) {
+            _seconds += 1 * Time.deltaTime;
+
+            
+        }
 
         // Use TimeSpan from system namespace to calculate the time for us.
         TimeSpan t = TimeSpan.FromSeconds(_seconds);
@@ -27,6 +32,10 @@ public class ErnestoCounter : MonoBehaviour
 
         CurrentTime.text = newTime;
         
+    }
+
+    public void togglePause() {
+        _is_running = !_is_running;
     }
 
     public float GetSeconds(){

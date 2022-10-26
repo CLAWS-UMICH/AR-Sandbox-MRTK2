@@ -4,24 +4,24 @@ using UnityEngine;
 using TMPro;
 
 public class ErnestoEditTime : MonoBehaviour
-{
-    [SerializeField]
-    private GameObject TimerText;
+{   
+    [SerializeField] GameObject ErnestoGameObject;
+    ErnestoCounter ernestoCounter;
 
-    private float seconds;
-    // function to pause time
-    // void pause() {
-    //     TimerText.
-    // }
-
-
-    //function to continue time
-    void unpause() {
-
+    void Awake() {
+        ernestoCounter = ErnestoGameObject.GetComponent<ErnestoCounter>();
+    }
+    public void PauseAndUnpause() {
+        ernestoCounter.togglePause();
     }
 
-    //function to reset time
-    void reset() {
-
+    public void reset() {
+        ernestoCounter.SetSeconds(0);
     }
+
+    public void addTenSeconds() {
+        float newTime = ernestoCounter.GetSeconds() + 10;
+        ernestoCounter.SetSeconds(newTime);
+    }
+
 }

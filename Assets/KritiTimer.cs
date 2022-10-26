@@ -6,16 +6,16 @@ using TMPro;
 public class KritiTimer : MonoBehaviour
 {
     // Start is called before the first frame update
-    private IEnumerator updateTimeCoroutine;
+    private IEnumerator coroutine;
     private int seconds = 0;
     private int minutes = 0;
     private int hours = 0;
-    [SerializeField] private TextMeshPro clock;
+    [SerializeField] private TextMeshPro timer;
     void Start()
     {
-        clock = gameObject.GetComponentInChildren<TextMeshPro>();
-        updateTimeCoroutine = updateTime();
-        StartCoroutine(updateTimeCoroutine);
+        timer = gameObject.GetComponentInChildren<TextMeshPro>();
+        coroutine = UpdateTime();
+        StartCoroutine(coroutine);
     }
     private string Zeroes(int time){        
         if (time < 10)
@@ -26,7 +26,7 @@ public class KritiTimer : MonoBehaviour
             return time.ToString();
     }
 
-    private IEnumerator updateTime(){
+    private IEnumerator UpdateTime(){
         while (true){
             yield return new WaitForSeconds(1);
             if(seconds==59){
@@ -38,10 +38,7 @@ public class KritiTimer : MonoBehaviour
                 minutes = 0;
                 hours++;
             }
-            clock.text = Zeroes(hours) + ":" + Zeroes(minutes) + ":" + Zeroes(seconds);
-            // updateCorrectSection(ref timeInSeconds, ref timeInMinutes);
-            // updateCorrectSection(ref timeInMinutes, ref timeInHours);
-            // gameObject.GetComponentInChildren<BohnettUI>().SetTime(timeInSeconds, timeInMinutes, timeInHours);
+            timer.text = Zeroes(hours) + ":" + Zeroes(minutes) + ":" + Zeroes(seconds);
         }
         
     }

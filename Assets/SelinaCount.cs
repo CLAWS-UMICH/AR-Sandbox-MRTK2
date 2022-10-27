@@ -6,14 +6,14 @@ using TMPro;
 
 public class SelinaCount : MonoBehaviour
 {
-    int currentTime = 0f;
+    float currentTime = 0f;
     int minuteNum = 0;
     int hrNum = 0;
-    int StartTime = 0f;
+    float StartTime = 0f;
 
-    [SerializedField] TextMeshPro hour;
-    [SerializedField] TextMeshPro minute;
-    [SerializedField] TextMeshPro second;
+    public TextMeshPro hour;
+    public TextMeshPro minute;
+    public TextMeshPro second;
 
     void Start()
     {
@@ -24,12 +24,12 @@ public class SelinaCount : MonoBehaviour
     void Update()
     {
         currentTime += 1 * Time.deltaTime;
-        second.text = currentTime.ToString();
-        minute.text = minuteNum.ToString();
-        hour.text = hrNum.ToString();
+        second.text = currentTime.ToString("00");
+        minute.text = minuteNum.ToString("00");
+        hour.text = hrNum.ToString("00");
 
-        if (currentTime == 60) {
-            currentTime = 0;
+        if (currentTime.ToString("0") == "60") {
+            currentTime = 0f;
             minuteNum += 1;
         }
 

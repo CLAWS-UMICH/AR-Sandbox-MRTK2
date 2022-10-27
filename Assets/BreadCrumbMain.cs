@@ -4,14 +4,26 @@ using UnityEngine;
 
 public class BreadCrumbMain : MonoBehaviour
 {
-    [SerializeField] private bool buttonStatus;
-    [SerializeField] private int pressedNumber;
+    [SerializeField] private bool _buttonStatus;
+    [SerializeField] private GameObject crumb;
+    [SerializeField] private GameObject parent;
 
-    private float elapsed = 0f;
+    private int pressedNumber;
+    private GameObject crumbObject;
+    private int crumCount = 0;
+
+    public bool ButtonStatus
+    {
+        get
+        {
+            return _buttonStatus;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        buttonStatus = false;
+        _buttonStatus = false;
         pressedNumber = 0;
         StartCoroutine(ExampleCoroutine());
     }
@@ -21,9 +33,11 @@ public class BreadCrumbMain : MonoBehaviour
     {
         while (true)
         {
-            if (buttonStatus)
+            if (_buttonStatus)
             {
-                Debug.Log("but");
+                crumCount++;
+                crumbObject = (GameObject) Instantiate(crumb, transform);
+                crumbObject.name = "c" + crumCount;
             }
             yield return new WaitForSeconds(1);
         }
@@ -34,12 +48,12 @@ public class BreadCrumbMain : MonoBehaviour
         pressedNumber++;
         if (pressedNumber == 1)
         {
-            buttonStatus = true;
+            _buttonStatus = true;
         }
         else if (pressedNumber == 2)
         {
             pressedNumber = 0;
-            buttonStatus = false;
+            _buttonStatus = false;
         }
     }
 }

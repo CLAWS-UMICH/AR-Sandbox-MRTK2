@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 8061814802088409399}
   - component: {fileID: 8061814802088409398}
   - component: {fileID: 8061814802088409397}
-  - component: {fileID: -6052354450154518038}
+  - component: {fileID: 8061814802088409406}
   m_Layer: 0
   m_Name: KritiTimerPrefab
   m_TagString: Untagged
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTetherWhenManipulating: 0
   IsBoundsHandles: 0
---- !u!114 &-6052354450154518038
+--- !u!114 &8061814802088409406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -825,4 +825,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91cd321bd7e06453e8a1364cea165608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
+  clock: {fileID: 0}

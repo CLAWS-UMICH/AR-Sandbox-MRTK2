@@ -3490,7 +3490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2597051499859359963, guid: c63430f26cbb2473aa0b495c46f572b3, type: 3}
       propertyPath: m_text
-      value: Say "Select"
+      value: add time
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c63430f26cbb2473aa0b495c46f572b3, type: 3}
@@ -11109,83 +11109,71 @@ MonoBehaviour:
   Events: []
   resetOnDestroy: 0
   enabledOnStart: 1
---- !u!1001 &6454383553867787546
+--- !u!1001 &7789601245506310159
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6454383552923107937, guid: 051dab46e5475485180a0d2e08181268, type: 3}
-      propertyPath: m_Name
-      value: JasonTimer
+    - target: {fileID: 7789601245006967719, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107941, guid: 051dab46e5475485180a0d2e08181268, type: 3}
-      propertyPath: profiles.Array.data[0].Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107941, guid: 051dab46e5475485180a0d2e08181268, type: 3}
-      propertyPath: profiles.Array.data[2].Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107942, guid: 051dab46e5475485180a0d2e08181268, type: 3}
-      propertyPath: seeItSayItLabel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107942, guid: 051dab46e5475485180a0d2e08181268, type: 3}
-      propertyPath: iconQuadRenderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107942, guid: 051dab46e5475485180a0d2e08181268, type: 3}
-      propertyPath: seeItSayItLabelText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107993, guid: 051dab46e5475485180a0d2e08181268, type: 3}
+    - target: {fileID: 7789601245485674292, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107993, guid: 051dab46e5475485180a0d2e08181268, type: 3}
+    - target: {fileID: 7789601245485674292, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.2253077
       objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107993, guid: 051dab46e5475485180a0d2e08181268, type: 3}
+    - target: {fileID: 7789601245485674292, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.19594571
       objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107993, guid: 051dab46e5475485180a0d2e08181268, type: 3}
+    - target: {fileID: 7789601245485674292, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.4239748
       objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107993, guid: 051dab46e5475485180a0d2e08181268, type: 3}
+    - target: {fileID: 7789601245485674292, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107993, guid: 051dab46e5475485180a0d2e08181268, type: 3}
+    - target: {fileID: 7789601245485674292, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107993, guid: 051dab46e5475485180a0d2e08181268, type: 3}
+    - target: {fileID: 7789601245485674292, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107993, guid: 051dab46e5475485180a0d2e08181268, type: 3}
+    - target: {fileID: 7789601245485674292, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107993, guid: 051dab46e5475485180a0d2e08181268, type: 3}
+    - target: {fileID: 7789601245485674292, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107993, guid: 051dab46e5475485180a0d2e08181268, type: 3}
+    - target: {fileID: 7789601245485674292, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6454383552923107993, guid: 051dab46e5475485180a0d2e08181268, type: 3}
+    - target: {fileID: 7789601245485674292, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7789601245485674293, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
+      propertyPath: m_Name
+      value: SelinaTimer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789601246259321403, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 051dab46e5475485180a0d2e08181268, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 883fda739212e43c1b8b8cf02c920349, type: 3}
 --- !u!1001 &8185472340374211926
 PrefabInstance:
   m_ObjectHideFlags: 0

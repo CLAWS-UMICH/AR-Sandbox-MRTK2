@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class AstronautData
 {
+<<<<<<< HEAD
   class AstronautData{
     
     Stack astrobiodata = new Stack();
     public string firstName;
     public string lastName; 
     public int ID; 
+=======
+>>>>>>> main
     public string height;
     public int age; 
     public string hometown; 
     public string occupation;
+<<<<<<< HEAD
     public string marriageStatus; 
  
     //using ToString()
@@ -55,3 +59,6 @@ public class NewBehaviourScript : MonoBehaviour
 
   }
 }
+=======
+}
+>>>>>>> main

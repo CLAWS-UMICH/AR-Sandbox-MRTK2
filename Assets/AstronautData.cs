@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class AstronautData
 {
-  class AstronautData{
+  class AstronautData
+  {
     
     Stack astrobiodata = new Stack();
     public string firstName;

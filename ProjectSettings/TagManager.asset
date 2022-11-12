@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - crumb
+  - TaskIcon
+  - TaskDescription
+  - TaskTitle
   layers:
   - Default
   - TransparentFX

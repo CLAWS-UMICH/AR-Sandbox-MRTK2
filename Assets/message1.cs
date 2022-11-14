@@ -23,10 +23,12 @@ public class message1 : MonoBehaviour
 
     public void click() {
 
+
+        PositionOfMessage p = new PositionOfMessage();
         // windowsTmp.text = buttonTmp; 
         // Instantiate at position (0, 0, 0) and zero rotation.
         // messageObject gets the real instance and message is the prototype in prefab
-        GameObject messageObject = Instantiate(message, PositionOfMessage.getPosition(), Quaternion.identity);
+        GameObject messageObject = Instantiate(message, p.getPosition(), Quaternion.identity);
         // Debug.Log(buttonTmp);
 
         // 1. Set up the first kind of messageObject: messageBox

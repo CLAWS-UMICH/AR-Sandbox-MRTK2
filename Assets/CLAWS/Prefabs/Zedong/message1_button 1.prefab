@@ -1368,7 +1368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowsTmp: {fileID: 0}
   buttonTmp: ss
-  messageBox: {fileID: 8406492013778663083, guid: 52bbd5961e75e48d49d7f0bc7912fc89, type: 3}
+  message: {fileID: 0}
 --- !u!1 &8533406833974992000
 GameObject:
   m_ObjectHideFlags: 0

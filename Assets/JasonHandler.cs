@@ -32,8 +32,8 @@ public class JasonHandler : MonoBehaviour
     }
 
     private void TextChange() {
-        TimeSpan format = new(0, 0, seconds);
-        text.text = format.ToString();
+        //TimeSpan format = new(0, 0, seconds);
+        //text.text = format.ToString();
     }
 
     IEnumerator TimerCoroutine()

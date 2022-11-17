@@ -55,9 +55,8 @@ public class controledByMouse : MonoBehaviour
     {
         
         // Debug.Log(instance.getMode());
-    
-
-        if (instance.getMode()) moveObjectByMouse ();
+        // if (instance.getMode()) moveObjectByMouse ();
+        moveObjectByMouse ();
         
     }
 

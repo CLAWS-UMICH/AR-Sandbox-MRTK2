@@ -38,7 +38,7 @@ public class message1 : MonoBehaviour
         GameObject messageContent = messageBox.transform.GetChild(0).gameObject;
         // Get the Text(TMP)'s component
         TextMeshPro tmp = messageContent.GetComponent<TextMeshPro>();
-        Debug.Log(tmp.text);
+        Debug.Log(messageObject.GetComponent<Transform>().position);
         tmp.text = buttonTmp; 
         Debug.Log(tmp.text);
         // 2. Set up the second kid of messageObject: Person

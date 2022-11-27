@@ -6,34 +6,18 @@ using UnityEngine.UI;
 
 public class TaskBox : MonoBehaviour
 {
-    // Add something for when they are checked?
-    private Sprite taskIcon;
-    private string taskTitle;
-    private string taskDescription;
-
     private const string taskIconTag = "TaskIcon";
     private const string taskTitleTag = "TaskTitle";
     private const string taskDescriptionTag = "TaskDescription";
 
-
-    public TaskBox(Sprite taskIconIn, string taskTitleIn, string taskDescriptionIn)
-    {
-        taskIcon = taskIconIn;
-        taskTitle = taskTitleIn;
-        taskDescription = taskDescriptionIn;
-    }
-
-    private void Start()
-    {
-        ConstructTask();
-    }
-
-    private void ConstructTask()
+    public void ConstructTask(Sprite taskIcon, string taskTitle, string taskDescription)
     {
         foreach (Transform child in gameObject.transform)
         {
+            Debug.Log(child);
             if (child.tag == taskIconTag)
             {
+                Debug.Log("FLup");
                 child.GetComponent<Image>().sprite = taskIcon;
             }
 
@@ -48,6 +32,11 @@ public class TaskBox : MonoBehaviour
             }
         }
         
+    }
+
+    public void RemoveFromChecklist()
+    {
+        FindObjectOfType<MissionChecklist>().FinishTask(this);
     }
 
 }

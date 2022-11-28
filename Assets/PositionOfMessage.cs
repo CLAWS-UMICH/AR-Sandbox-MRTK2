@@ -19,7 +19,7 @@ public class PositionOfMessage : MonoBehaviour
         // Set up the first position of the message box basing on the position of the window
         Transform t  = transform;
         Vector3 pos = t.position;
-        Debug.Log(Camera.main.transform.position);
+        // Debug.Log(Camera.main.transform.position);
         x = pos[0] + 0.5F;
         y = pos[1] + 0.3F;
         z = pos[2] - 0.6F;
@@ -31,7 +31,7 @@ public class PositionOfMessage : MonoBehaviour
     }
 
     void Update() {
-        Debug.Log(Camera.main.transform.position);
+        // Debug.Log(Camera.main.transform.position);
     }
 
 }

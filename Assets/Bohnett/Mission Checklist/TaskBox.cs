@@ -12,23 +12,25 @@ public class TaskBox : MonoBehaviour
 
     public void ConstructTask(Sprite taskIcon, string taskTitle, string taskDescription)
     {
-        foreach (Transform child in gameObject.transform)
+        Debug.Log(taskTitle);
+        Debug.Log(taskDescription);
+
+        var allChildren = gameObject.GetComponentsInChildren<Transform>();
+        foreach (Transform child in allChildren)
         {
-            Debug.Log(child);
             if (child.tag == taskIconTag)
             {
-                Debug.Log("FLup");
                 child.GetComponent<Image>().sprite = taskIcon;
             }
 
             if (child.tag == taskTitleTag)
             {
-                child.GetComponent<TextMeshPro>().text = taskTitle;
+                child.GetComponent<TextMeshProUGUI>().text = taskTitle;
             }
 
             if (child.tag == taskDescriptionTag)
             {
-                child.GetComponent<TextMeshPro>().text = taskDescription;
+                child.GetComponent<TextMeshProUGUI>().text = taskDescription;
             }
         }
         

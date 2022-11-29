@@ -7,19 +7,18 @@ public class MissionChecklist : MonoBehaviour
     // Just for testing purposes
     [SerializeField] GameObject taskBox;
     [SerializeField] Sprite icon;
+    [SerializeField] string testTitle = "Test";
+    [SerializeField] string testDescription = "This is a description";
 
     private List<TaskBox> currentTasks = new List<TaskBox>();
 
     public void AddTask()
     {
-        string title = "Test";
-        string desc = "This is a description";
-
         GameObject finalTaskBox = Instantiate(taskBox, gameObject.transform);
 
         TaskBox task = finalTaskBox.GetComponentInChildren<TaskBox>();
 
-        task.ConstructTask(icon, title, desc);
+        task.ConstructTask(icon, testTitle, testDescription);
         currentTasks.Add(task);
     }
 

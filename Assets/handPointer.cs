@@ -6,7 +6,7 @@ public class handPointer : MonoBehaviour
 {
     void Update()
     {
-        double swipeDistance = 0.2;
+        double swipeDistance = 0.5;
         foreach(var source in MixedRealityToolkit.InputSystem.DetectedInputSources)
         {
             if (source.SourceType == Microsoft.MixedReality.Toolkit.Input.InputSourceType.Hand)
@@ -32,16 +32,20 @@ public class handPointer : MonoBehaviour
                             if (startPointy + swipeDistance >= endPointy)
                             {
                                 Debug.Log("Swiped Up");
+                                // Debug.Log($"startPos: {startPointy}");
+                                // Debug.Log($"endPos: {endPointy}");
                             }
-                            if (startPointy + swipeDistance <= endPointy)
+                            if (startPointy - swipeDistance <= endPointy)
                             {
                                 Debug.Log("Swiped Down");
                             }
                             if (startPointx + swipeDistance >= endPointx)
                             {
                                 Debug.Log("Swiped Right");
+                                // Debug.Log($"startPos: {startPointx}");
+                                // Debug.Log($"endPos: {endPointx}");
                             }
-                            if (startPointx + swipeDistance <= endPointx)
+                            if (startPointx - swipeDistance <= endPointx)
                             {
                                 Debug.Log("Swiped Left");
                             }

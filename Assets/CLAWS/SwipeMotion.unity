@@ -371,8 +371,8 @@ GameObject:
   m_Component:
   - component: {fileID: 809712952}
   - component: {fileID: 809712953}
-  - component: {fileID: 809712954}
   - component: {fileID: 809712955}
+  - component: {fileID: 809712957}
   m_Layer: 0
   m_Name: MixedRealityPlayspace
   m_TagString: Untagged
@@ -415,31 +415,6 @@ MonoBehaviour:
   additionalOffset: {x: 0, y: 0, z: 0}
   additionalRotation: {x: 0, y: 0, z: 0}
   updateSolvers: 1
---- !u!114 &809712954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809712951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54277e9e7b297324880fa818608ea979, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dwellProfile: {fileID: 0}
-  dwellIntended:
-    m_PersistentCalls:
-      m_Calls: []
-  dwellStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  dwellCompleted:
-    m_PersistentCalls:
-      m_Calls: []
-  dwellCanceled:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &809712955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +427,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d266fb0d6cc64f0798123d6925470e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &809712957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809712951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e736ec19b1c5543a9bb27c150f94fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFocusRequired: 1
+  MarkEventsAsUsed: 0
+  OnPointerDown:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointerUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointerClicked:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointerDragged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1698852959
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +560,6 @@ GameObject:
   - component: {fileID: 1839042165}
   - component: {fileID: 1839042164}
   - component: {fileID: 1839042163}
-  - component: {fileID: 1839042172}
   - component: {fileID: 1839042171}
   m_Layer: 0
   m_Name: UI Backplate(Clone)
@@ -819,47 +819,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pixelDectDis: 40
---- !u!114 &1839042172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839042162}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1410eac1ae94b4d4492a09cc368e152c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  states: {fileID: 11400000, guid: 5eac1712038236e4b8ffdb3893804fe1, type: 2}
-  InputActionId: 0
-  isGlobal: 0
-  Dimensions: 1
-  dimensionIndex: 0
-  startDimensionIndex: 0
-  CanSelect: 1
-  CanDeselect: 1
-  voiceCommand: 
-  voiceRequiresFocus: 1
-  profiles:
-  - Target: {fileID: 1839042162}
-    Themes:
-    - {fileID: 0}
-  OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1839042162}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Events: []
-  resetOnDestroy: 0
-  enabledOnStart: 1

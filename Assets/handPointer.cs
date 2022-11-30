@@ -2,7 +2,7 @@ using Microsoft.MixedReality.Toolkit;
 using Microsoft.MixedReality.Toolkit.Input;
 using UnityEngine;
 
-public class HitPointTest : MonoBehaviour
+public class handPointer : MonoBehaviour
 {
     void Update()
     {
@@ -22,13 +22,15 @@ public class HitPointTest : MonoBehaviour
                         var startPoint = p.Position;
                         var endPoint = p.Result.Details.Point;
                         var hitObject = p.Result.Details.Object;
-                        Debug.Log(startPoint);
-                        Debug.Log(endPoint);
                         if (hitObject)
                         {
-                            var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                            sphere.transform.localScale = Vector3.one * 0.01f;
-                            sphere.transform.position = endPoint;
+                            if (startPoint != endPoint)
+                            {
+                                Debug.Log("startPos: ");
+                                Debug.Log(startPoint);
+                                Debug.Log("endPos: ");
+                                Debug.Log(endPoint);
+                            }
                         }
                     }
 

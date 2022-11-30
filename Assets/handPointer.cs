@@ -30,10 +30,6 @@ public class handPointer : MonoBehaviour
                                 Debug.Log($"startPos: {startPoint}");
                                 Debug.Log($"endPos: {endPoint}");
                             }
-                            // else if (p.Position.y + swipeDistance <= p.Result.Details.Point.y)
-                            // {
-                            //     Debug.Log("Swiped Down");
-                            // }
                         }
                     }
 

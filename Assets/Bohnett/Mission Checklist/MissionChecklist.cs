@@ -10,7 +10,7 @@ public class MissionChecklist : MonoBehaviour
     [SerializeField] string testTitle = "Test";
     [SerializeField] string testDescription = "This is a description";
 
-    private List<TaskBox> currentTasks = new List<TaskBox>();
+    private List<GameObject> currentTasks = new List<GameObject>();
 
     public void AddTask()
     {
@@ -19,12 +19,21 @@ public class MissionChecklist : MonoBehaviour
         TaskBox task = finalTaskBox.GetComponentInChildren<TaskBox>();
 
         task.ConstructTask(icon, testTitle, testDescription);
-        currentTasks.Add(task);
+        currentTasks.Add(finalTaskBox);
     }
 
-    public void FinishTask(TaskBox task)
+
+    /* Doesn't actually properly delete stuff, for now, just the checkboxes will check marking complete
+
+    public void FinishTask(GameObject task)
     {
-        currentTasks.Remove(task);
-        Destroy(task);
+        if (currentTasks.Contains(task))
+        {
+            currentTasks.Remove(task);
+            Destroy(task);
+        }
+        
+
     }
+    */
 }

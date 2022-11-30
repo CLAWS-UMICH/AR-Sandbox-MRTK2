@@ -12,9 +12,6 @@ public class TaskBox : MonoBehaviour
 
     public void ConstructTask(Sprite taskIcon, string taskTitle, string taskDescription)
     {
-        Debug.Log(taskTitle);
-        Debug.Log(taskDescription);
-
         var allChildren = gameObject.GetComponentsInChildren<Transform>();
         foreach (Transform child in allChildren)
         {
@@ -36,9 +33,12 @@ public class TaskBox : MonoBehaviour
         
     }
 
+    /* Doesn't properly delete tasks yet, will come back to it later
+
     public void RemoveFromChecklist()
     {
-        FindObjectOfType<MissionChecklist>().FinishTask(this);
+        FindObjectOfType<MissionChecklist>().FinishTask(gameObject);
     }
+    */
 
 }

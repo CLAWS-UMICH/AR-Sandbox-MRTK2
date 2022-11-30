@@ -59,14 +59,14 @@ public class updatePos : MonoBehaviour
                 
                 // g.GetComponent<Transform>().position = Camera.main.transform.position + new Vector3((z + positionDiff[0]) * (float)(Math.Sin(angleX)) + positionDiff[0], (-z - positionDiff[1]) * (float)(Math.Sin(angleY)) - positionDiff[1], z * (float)(Math.Cos(angleX + angleY)));
                 // z = curPosition[2];
-                g.GetComponent<Transform>().position = Camera.main.transform.position + new Vector3((z) * (float)(Math.Sin(angleX + angleDeviation[0])), (-z) * (float)(Math.Sin(angleY - angleDeviation[1])), z * (float)(Math.Cos(angleX + angleY)));
+                g.GetComponent<Transform>().position = Camera.main.transform.position + new Vector3((z) * (float)(Math.Sin(angleX + angleDeviation[0])), (-z) * (float)(Math.Sin(angleY - angleDeviation[1])), z * (float)(Math.Cos(angleX))*(float)(Math.Cos(angleY)));
                 // g.GetComponent<Transform>().position = Camera.main.transform.position + new Vector3(z * (float)(Math.Sin(angleX)) + positionDiff[0], -z * (float)(Math.Sin(angleY) - positionDiff[1]), z * (float)(Math.Cos(angleX)));
                 
                 // position before manipulation
                 // curPosition = Camera.main.transform.position;
                 // g.GetComponent<Transform>().position = Camera.main.transform.position + new Vector3(z * (float)(Math.Sin(angleX)), -z * (float)(Math.Sin(angleY)), z * (float)(Math.Cos(angleY)));
-
-                // Debug.Log(g.GetComponent<Transform>().position);
+                Vector3 diff = g.GetComponent<Transform>().position - Camera.main.transform.position;
+                Debug.Log(diff[0] * diff[0] + " " + diff[1] * diff[1] + " " + diff[0] * diff[0] + diff[1] * diff[1]);
                 // Debug.Log((Math.Sin(angleY)) + " " + angles[0] + " " + (-z) * (float)(Math.Sin(angleY)));
 
                 // g.GetComponent<Transform>().rotation = Camera.main.transform.rotation;
@@ -80,7 +80,7 @@ public class updatePos : MonoBehaviour
                 // Calculate the angle deviation between camera and window
                 float deviationX = (float)Math.Asin(positionDiff[0] / 0.5f);
                 float deviationY = (float)Math.Asin(positionDiff[1] / 0.5f);
-                Debug.Log(deviationX);
+                // Debug.Log(deviationX);
                 // Set bounds, user is not allowed to move the window out of bound
                 if (deviationX > 1.4f || Double.IsNaN(deviationX)) deviationX = 0.7f;
                 if (deviationX < -1.4f || Double.IsNaN(deviationX)) deviationX = -0.7f;

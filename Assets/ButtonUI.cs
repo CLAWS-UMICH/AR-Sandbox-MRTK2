@@ -10,5 +10,6 @@ public class ButtonUI : MonoBehaviour
     public void NewGameButton()
     {
         SceneManager.LoadScene(newGameLevel);
+        Debug.Log("Button Clicked")
     }
 }

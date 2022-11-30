@@ -17,12 +17,12 @@ MonoBehaviour:
   recognitionConfidenceLevel: 1
   speechCommands:
   - localizationKey: 
-    keyword: Open
-    keyCode: 111
+    keyword: select
+    keyCode: 13
     action:
-      id: 0
-      description: None
-      axisConstraint: 0
+      id: 1
+      description: Select
+      axisConstraint: 2
   - localizationKey: 
     keyword: Select
     keyCode: 115
@@ -40,6 +40,13 @@ MonoBehaviour:
   - localizationKey: 
     keyword: Change Color
     keyCode: 114
+    action:
+      id: 0
+      description: Toggle Diagnostics
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: 
+    keyCode: 0
     action:
       id: 0
       description: Toggle Diagnostics

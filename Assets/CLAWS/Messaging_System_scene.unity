@@ -1898,7 +1898,7 @@ MonoBehaviour:
   delay: 0
   x: 0
   y: 0
-  z: 0.5
+  distance: 1
 --- !u!114 &138185614
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: KritiTheme
   m_EditorClassIdentifier: 
   definitions:
-  - ClassName: InteractableActivateTheme
-    AssemblyQualifiedName: Microsoft.MixedReality.Toolkit.UI.InteractableActivateTheme,
+  - ClassName: InteractableColorChildrenTheme
+    AssemblyQualifiedName: Microsoft.MixedReality.Toolkit.UI.InteractableColorChildrenTheme,
       Microsoft.MixedReality.Toolkit.SDK, Version=2.8.2.0, Culture=neutral, PublicKeyToken=null
     stateProperties:
-    - name: Activate
-      type: 15
+    - name: Color
+      type: 2
       values:
       - Name: 
         String: 
-        Bool: 1
+        Bool: 0
         Int: 0
         Float: 0
         Texture: {fileID: 0}
@@ -32,13 +32,13 @@ MonoBehaviour:
         Vector2: {x: 0, y: 0}
         Vector3: {x: 0, y: 0, z: 0}
         Vector4: {x: 0, y: 0, z: 0, w: 0}
-        Color: {r: 0, g: 0, b: 0, a: 0}
+        Color: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
         Quaternion: {x: 0, y: 0, z: 0, w: 0}
         AudioClip: {fileID: 0}
         Animation: {fileID: 0}
       - Name: 
         String: 
-        Bool: 1
+        Bool: 0
         Int: 0
         Float: 0
         Texture: {fileID: 0}
@@ -48,13 +48,13 @@ MonoBehaviour:
         Vector2: {x: 0, y: 0}
         Vector3: {x: 0, y: 0, z: 0}
         Vector4: {x: 0, y: 0, z: 0, w: 0}
-        Color: {r: 0, g: 0, b: 0, a: 0}
+        Color: {r: 0.067283735, g: 0.07740891, b: 0.5283019, a: 1}
         Quaternion: {x: 0, y: 0, z: 0, w: 0}
         AudioClip: {fileID: 0}
         Animation: {fileID: 0}
       - Name: 
         String: 
-        Bool: 1
+        Bool: 0
         Int: 0
         Float: 0
         Texture: {fileID: 0}
@@ -64,13 +64,13 @@ MonoBehaviour:
         Vector2: {x: 0, y: 0}
         Vector3: {x: 0, y: 0, z: 0}
         Vector4: {x: 0, y: 0, z: 0, w: 0}
-        Color: {r: 0, g: 0, b: 0, a: 0}
+        Color: {r: 0.43992794, g: 0.40730688, b: 0.764151, a: 1}
         Quaternion: {x: 0, y: 0, z: 0, w: 0}
         AudioClip: {fileID: 0}
         Animation: {fileID: 0}
       - Name: 
         String: 
-        Bool: 1
+        Bool: 0
         Int: 0
         Float: 0
         Texture: {fileID: 0}
@@ -80,13 +80,13 @@ MonoBehaviour:
         Vector2: {x: 0, y: 0}
         Vector3: {x: 0, y: 0, z: 0}
         Vector4: {x: 0, y: 0, z: 0, w: 0}
-        Color: {r: 0, g: 0, b: 0, a: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
         Quaternion: {x: 0, y: 0, z: 0, w: 0}
         AudioClip: {fileID: 0}
         Animation: {fileID: 0}
       - Name: 
         String: 
-        Bool: 1
+        Bool: 0
         Int: 0
         Float: 0
         Texture: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
         Vector2: {x: 0, y: 0}
         Vector3: {x: 0, y: 0, z: 0}
         Vector4: {x: 0, y: 0, z: 0, w: 0}
-        Color: {r: 0, g: 0, b: 0, a: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
         Quaternion: {x: 0, y: 0, z: 0, w: 0}
         AudioClip: {fileID: 0}
         Animation: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
       defaultValue:
         Name: 
         String: 
-        Bool: 1
+        Bool: 0
         Int: 0
         Float: 0
         Texture: {fileID: 0}
@@ -130,19 +130,19 @@ MonoBehaviour:
         Vector2: {x: 0, y: 0}
         Vector3: {x: 0, y: 0, z: 0}
         Vector4: {x: 0, y: 0, z: 0, w: 0}
-        Color: {r: 0, g: 0, b: 0, a: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
         Quaternion: {x: 0, y: 0, z: 0, w: 0}
         AudioClip: {fileID: 0}
         Animation: {fileID: 0}
-      targetShader: {fileID: 0}
-      shaderPropertyName: 
+      targetShader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
+      shaderPropertyName: _Color
       PropId: -1
       ShaderOptions: []
       ShaderOptionNames: []
       ShaderName: 
     customProperties: []
     easing:
-      Enabled: 0
+      Enabled: 1
       Curve:
         serializedVersion: 2
         m_Curve:
@@ -156,8 +156,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 1
-          value: 1
+          time: 0.12432861
+          value: 1.0101318
           inSlope: 0
           outSlope: 0
           tangentMode: 0

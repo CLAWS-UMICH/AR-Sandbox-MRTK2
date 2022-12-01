@@ -7,6 +7,8 @@ public class KritiButtonTimer : MonoBehaviour
     // Start is called before the first frame update
     private IEnumerator coroutine;
     public GameObject panel;
+
+    public AudioClip clip;
    
     void Start()
     {
@@ -27,6 +29,7 @@ public class KritiButtonTimer : MonoBehaviour
             yield return new WaitForSeconds(2);
             panel.SetActive(true);
             Debug.Log("hi");
+            gameObject.GetComponent<AudioSource>().PlayOneShot(clip);
         }
         
     }

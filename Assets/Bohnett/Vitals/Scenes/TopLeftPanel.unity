@@ -164,6 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 166755704}
+  - component: {fileID: 166755705}
   m_Layer: 0
   m_Name: BatteryPercentage
   m_TagString: Untagged
@@ -187,6 +188,21 @@ Transform:
   m_Father: {fileID: 529478055}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &166755705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166755703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb40986c634f8411989896e34758dbd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meter: {fileID: 334634912}
+  percentageText: {fileID: 754706659}
+  percentageValue: 0
 --- !u!1 &217429892
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +425,7 @@ GameObject:
   - component: {fileID: 268902461}
   - component: {fileID: 268902463}
   - component: {fileID: 268902462}
+  - component: {fileID: 268902464}
   m_Layer: 5
   m_Name: OxygenMeterFill
   m_TagString: Untagged
@@ -474,6 +491,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268902460}
   m_CullTransparentMesh: 1
+--- !u!114 &268902464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268902460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fb5285b490a45acb7c09353f0f0667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 10
 --- !u!1 &271045611
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +609,7 @@ GameObject:
   - component: {fileID: 334634909}
   - component: {fileID: 334634911}
   - component: {fileID: 334634910}
+  - component: {fileID: 334634912}
   m_Layer: 5
   m_Name: BatteryMeterFill
   m_TagString: Untagged
@@ -644,6 +675,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334634908}
   m_CullTransparentMesh: 1
+--- !u!114 &334634912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334634908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fb5285b490a45acb7c09353f0f0667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 10
 --- !u!1 &406214568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1099,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -10.1, y: -1.5}
-  m_SizeDelta: {x: 10, y: 10}
+  m_SizeDelta: {x: 15, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &683319882
 MonoBehaviour:
@@ -1190,7 +1234,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -9.3, y: -1.5}
-  m_SizeDelta: {x: 10, y: 10}
+  m_SizeDelta: {x: 15, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &754706659
 MonoBehaviour:
@@ -1660,6 +1704,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1289431876}
+  - component: {fileID: 1289431877}
   m_Layer: 0
   m_Name: OxygenPercentage
   m_TagString: Untagged
@@ -1683,6 +1728,21 @@ Transform:
   m_Father: {fileID: 768161095}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1289431877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289431875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb40986c634f8411989896e34758dbd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meter: {fileID: 268902464}
+  percentageText: {fileID: 683319882}
+  percentageValue: 0
 --- !u!1 &1310037298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,8 +2334,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696979428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.149, z: 0.454}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 406214572}

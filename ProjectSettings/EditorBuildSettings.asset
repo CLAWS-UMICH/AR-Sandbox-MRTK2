@@ -5,17 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-<<<<<<< HEAD
   - enabled: 0
     path: Assets/CLAWS/Dwell Prototype/EyeGazePt2Dwell.unity
     guid: ecea189c276606e4c9be030545d52e5a
   - enabled: 0
-=======
   - enabled: 1
     path: Assets/CLAWS/DistanceSandbox.unity
     guid: e9e2fdadab4f0104593e741daee7ddab
   - enabled: 1
->>>>>>> d6d40f55ddd653f41958f961d1887f90fd470472
     path: Assets/Samples/Mixed Reality Toolkit Examples/2.8.2/Experimental - ExamplesHub/Scenes/MRTKExamplesHubMainMenu.unity
     guid: 63a00118e809c754f9c7911bb85d635f
   - enabled: 0

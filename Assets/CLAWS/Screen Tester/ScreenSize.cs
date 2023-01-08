@@ -20,7 +20,7 @@ public class ScreenSize : MonoBehaviour
     public void sideIn() {
         si = new Vector3(-0.1f, 0, 0);
         panel.transform.localScale += si;
-        x -= .1f;
+        x += .1f;
         textMeshPro.text = "X Scale: " + x;
     }
 
@@ -34,7 +34,7 @@ public class ScreenSize : MonoBehaviour
     public void vertIn() {
         vi = new Vector3(0, -0.1f, 0);
         panel.transform.localScale += vi;
-        y -= .1f;
+        y += .1f;
         textMeshPro.text = "Y Scale: " + y;
     }
 

@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 499725903}
-  textMeshPro: {fileID: 0}
+  textMeshPro: {fileID: 2106603584}
 --- !u!1 &76592942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 499725903}
-  textMeshPro: {fileID: 0}
+  textMeshPro: {fileID: 666505068}
 --- !u!1 &666505067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,7 +2838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 499725903}
-  textMeshPro: {fileID: 0}
+  textMeshPro: {fileID: 666505068}
 --- !u!1 &956631658
 GameObject:
   m_ObjectHideFlags: 0
@@ -6420,7 +6420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 499725903}
-  textMeshPro: {fileID: 0}
+  textMeshPro: {fileID: 2106603584}
 --- !u!23 &6116916117004317708
 MeshRenderer:
   m_ObjectHideFlags: 0

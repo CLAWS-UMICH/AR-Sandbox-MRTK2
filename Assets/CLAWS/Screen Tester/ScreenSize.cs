@@ -8,6 +8,7 @@ public class ScreenSize : MonoBehaviour
 
     [SerializeField] GameObject panel;
     [SerializeField] TextMeshPro textMeshPro;
+    public GameObject screen;
     private Vector3 si, so, vi, vo;
     private float x, y;
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class ScreenSize : MonoBehaviour
     {
         x = 1f;
         y = 1f;
+        
     }
 
     public void sideIn() {
@@ -43,5 +45,19 @@ public class ScreenSize : MonoBehaviour
         panel.transform.localScale += vo;
         y += .1f;
         textMeshPro.text = "Y Scale: " + y;
+    }
+
+    public void yUp() {
+        vo = new Vector3(0, 0.1f, 0);
+        panel.transform.localScale += vo;
+        y += .1f;
+        textMeshPro.text = "Y Pos: " + screen.transform.position.y;
+    }
+
+    public void yDown() {
+        vo = new Vector3(0, -0.1f, 0);
+        panel.transform.localPosition += vo;
+        y += .1f;
+        textMeshPro.text = "Y Pos: " + screen.transform.position.y;
     }
 }

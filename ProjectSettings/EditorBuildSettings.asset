@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/CLAWS/UXPrototype.unity
-    guid: 4d9dcb653dc814bb4bde1ef60c921729
+    path: Assets/CLAWS/VEGA/Stt-Tts.unity
+    guid: bd51b1ffd302afd48a30af7823752a5e
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 234a5619fe89cfd4790a8ae9a379e44e, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: ee8b604c09565a644be416067e8f7150, type: 2}

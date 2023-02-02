@@ -652,7 +652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb0fc604fe734d4caae809a1fda6bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: {fileID: 29743001}
+  text: {fileID: 29743001}
+  playbackBtn: {fileID: 0}
 --- !u!4 &800157792
 Transform:
   m_ObjectHideFlags: 0

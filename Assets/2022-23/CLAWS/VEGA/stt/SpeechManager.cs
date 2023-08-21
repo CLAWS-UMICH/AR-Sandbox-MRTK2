@@ -1,6 +1,19 @@
 // Conditional Compilation : no speech services supported through webGL
 
-#if UNITY_EDITOR || !UNITY_WEBGL
+#if UNITY_WEBGL
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using TMPro;
+
+public class SpeechManager : MonoBehaviour
+{
+    void onClick()
+    {
+    }
+}
+#else
 using UnityEngine;
 using UnityEngine.UI;
 using Microsoft.CognitiveServices.Speech;
@@ -59,21 +72,6 @@ public class SpeechManager : MonoBehaviour
     void onClick()
     {
         synthesizer.SpeakTextAsync(message);
-    }
-}
-#endif
-
-#if !UNITY_EDITOR && UNITY_WEBGL
-using UnityEngine;
-using UnityEngine.UI;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using TMPro;
-
-public class SpeechManager : MonoBehaviour
-{
-    void onClick()
-    {
     }
 }
 #endif

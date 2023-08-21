@@ -3,11 +3,11 @@ name: Deploy 🚀
 on:
   pull_request:
     branches:
-      - master
+      - main
     types: [closed]
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:

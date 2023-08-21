@@ -33,7 +33,6 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
-          projectPath: UnityWebGLDeploy
           unityVersion: 2021.3.4f1
           targetPlatform: WebGL
           

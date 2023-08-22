@@ -137,6 +137,47 @@ public class ScrollHandler : MonoBehaviour
         }
     }
 
+    // Function to handle button deletion based on GameObject
+    public void HandleButtonDeletion(GameObject deletedButton)
+    {
+        // Find the index of the deleted button
+        int deletedIndex = allButtons.FindIndex(button => button.gameObject == deletedButton);
+
+        if (deletedIndex >= 0)
+        {
+            // Remove the button at the deleted index
+            RemoveButton(deletedIndex);
+
+            // Destroy the deleted GameObject
+            Destroy(deletedButton);
+
+            // Update the scroll layout
+            CorrectLocations();
+        }
+        else
+        {
+            Debug.LogWarning("Deleted button not found in the list.");
+        }
+    }
+
+    // Removes a button at the specified index
+    private void RemoveButton(int index)
+    {
+        if (index >= 0 && index < allButtons.Count)
+        {
+            allButtons.RemoveAt(index);
+
+            // Update top and bottom indexes considering removed button
+            if (top == index)
+            {
+                top = Mathf.Max(top - 1, 0); // Decrement top index, but keep it >= 0
+            }
+
+            Activate(top, bottom);
+            CorrectLocations();
+        }
+    }
+
     // Activates buttons from start -> stop range
     private void Activate(int start, int stop)
     {

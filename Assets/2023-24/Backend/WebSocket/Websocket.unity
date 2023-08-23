@@ -318,50 +318,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &912940336
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 912940338}
-  - component: {fileID: 912940337}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &912940337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912940336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31baa6b9013bb1e4cab85ddf7fd57335, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &912940338
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912940336}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 540, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +400,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1581187578
 GameObject:
@@ -456,6 +412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1581187580}
   - component: {fileID: 1581187581}
+  - component: {fileID: 1581187582}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -487,9 +444,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 1581187578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9897b88615295ca4281edbb5461c3c06, type: 3}
+  m_Script: {fileID: 11500000, guid: b9138a69987212743ba7ff3a7785ccf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  astronautInstance:
+    AstronautId: 0
+    MessagingData:
+      id: 0
+      sent_to: 
+      message: 
+      received_from: 0
+    VitalsData:
+      heart_rate: 0
+      oxygen: 0
+      suit_temp: 0
+    GeosampleData:
+      id: 0
+      spec_data:
+        roack_example_data: 0
+      time: 
+      location:
+        latitude: 0
+        longitude: 0
+    WaypointData:
+      id: 0
+      location:
+        latitude: 0
+        longitude: 0
+      type: 0
+    TasklistData:
+      TaskList: []
+    AlertData:
+      id_in_danger: 0
+      vital: 
+      vitalVal: 0
+    BreadCrumbs: []
+    location:
+      latitude: 0
+      longitude: 0
+    currently_navigating: 0
+    inDanger: 0
+    color: 
+--- !u!114 &1581187582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581187578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31baa6b9013bb1e4cab85ddf7fd57335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  f: {fileID: 1581187581}
 --- !u!1 &2004897606
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +582,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 912940337}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WebSocketClient, Assembly-CSharp
         m_MethodName: SendMessage
         m_Mode: 1

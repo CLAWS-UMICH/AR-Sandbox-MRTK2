@@ -13,11 +13,11 @@ public class Fake : MonoBehaviour
         astronautInstance.AstronautId = 1;
         astronautInstance.MessagingData = new Messaging();
         astronautInstance.VitalsData = new Vitals();
-        astronautInstance.GeosampleData = new Geosample();
-        astronautInstance.WaypointData = new Waypoint();
-        astronautInstance.TasklistData = new Tasklist();
-        astronautInstance.AlertData = new Alert();
-        astronautInstance.BreadCrumbs = new List<Breadcrumb>();
+        astronautInstance.GeosampleData = new Geosamples();
+        astronautInstance.WaypointData = new Waypoints();
+        astronautInstance.TasklistData = new TaskList();
+        astronautInstance.AlertData = new Alerts();
+        astronautInstance.BreadCrumbData = new AllBreadCrumbs();
         astronautInstance.location = new Location();
         astronautInstance.currently_navigating = false;
         astronautInstance.inDanger = false;

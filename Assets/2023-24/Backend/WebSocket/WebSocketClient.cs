@@ -7,10 +7,13 @@ using System;
 public class WebSocketClient : MonoBehaviour
 {
     private WebSocket ws;
-    public Fake f;
+    private Fake f;
+    private WebsocketDataHandler dataHandler;
 
     private void Start()
     {
+        f = GetComponent<Fake>();
+        dataHandler = GetComponent<WebsocketDataHandler>();
         ws = new WebSocket("ws://localhost:8080");
         ws.OnMessage += OnWebSocketMessage;
         ws.Connect();
@@ -54,18 +57,46 @@ public class WebSocketClient : MonoBehaviour
 
     private void HandleJsonMessage(string jsonData)
     {
-        Debug.Log("test1");
         // Deserialize the JSON into JsonMessage class
         JsonMessage jsonMessage = JsonUtility.FromJson<JsonMessage>(jsonData);
 
         // Determine the type of data
         string messageType = jsonMessage.type;
+        string messageUse = jsonMessage.use;
 
         switch (messageType)
         {
+            case "Messaging":
+                MessagingData messageData = JsonUtility.FromJson<MessagingData>(jsonData);
+                dataHandler.HandleMessagingData(messageData.data, messageUse);
+                break;
+            case "Vitals":
+                VitalsData vitalsData = JsonUtility.FromJson<VitalsData>(jsonData);
+                dataHandler.HandleVitalsData(vitalsData.data, messageUse);
+                break;
+            case "Geosamples":
+                GeosamplesData geoData = JsonUtility.FromJson<GeosamplesData>(jsonData);
+                dataHandler.HandleGeosamplesData(geoData.data, messageUse);
+                break;
+            case "Waypoints":
+                WaypointsData waypointsData = JsonUtility.FromJson<WaypointsData>(jsonData);
+                dataHandler.HandleWaypointsData(waypointsData.data, messageUse);
+                break;
+            case "TaskList":
+                TaskListData taskListData = JsonUtility.FromJson<TaskListData>(jsonData);
+                dataHandler.HandleTaskListData(taskListData.data, messageUse);
+                break;
+            case "Alerts":
+                AlertsData alertsData = JsonUtility.FromJson<AlertsData>(jsonData);
+                dataHandler.HandleAlertsData(alertsData.data, messageUse);
+                break;
+            case "AllBreadCrumbs":
+                AllBreadCrumbsData breadcrumbsData = JsonUtility.FromJson<AllBreadCrumbsData>(jsonData);
+                dataHandler.HandleAllBreadCrumbsData(breadcrumbsData.data, messageUse);
+                break;
             case "Location":
-                TestLocation test = JsonUtility.FromJson<TestLocation>(jsonData);
-                HandleLocationData(test.data);
+                LocationData locationData = JsonUtility.FromJson<LocationData>(jsonData);
+                dataHandler.HandleLocationData(locationData.data, messageUse);
                 break;
             // Handle other message types similarly
             default:
@@ -74,28 +105,66 @@ public class WebSocketClient : MonoBehaviour
         }
     }
 
-    private void HandleLocationData(Location locationData)
+    public void SendJsonData(string jsonData)
     {
-        double latitude = locationData.latitude;
-        double longitude = locationData.longitude;
-
-        Debug.Log("Received Location:");
-        Debug.Log("Latitude: " + latitude);
-        Debug.Log("Longitude: " + longitude);
+        if (ws != null && ws.IsAlive)
+        {
+            ws.Send(jsonData);
+        }
     }
-
-
 }
 
 [Serializable]
 public class JsonMessage
 {
     public string type;
+    public string use;
 }
 
+[Serializable]
+public class MessagingData
+{
+    public Messaging data;
+}
 
 [Serializable]
-public class TestLocation
+public class VitalsData
+{
+    public Vitals data;
+}
+
+[Serializable]
+public class GeosamplesData
+{
+    public Geosamples data;
+}
+
+[Serializable]
+public class WaypointsData
+{
+    public Waypoints data;
+}
+
+[Serializable]
+public class TaskListData
+{
+    public TaskList data;
+}
+
+[Serializable]
+public class AlertsData
+{
+    public Alerts data;
+}
+
+[Serializable]
+public class AllBreadCrumbsData
+{
+    public AllBreadCrumbs data;
+}
+
+[Serializable]
+public class LocationData
 {
     public Location data;
 }

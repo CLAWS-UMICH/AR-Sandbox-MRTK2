@@ -413,6 +413,7 @@ GameObject:
   - component: {fileID: 1581187580}
   - component: {fileID: 1581187581}
   - component: {fileID: 1581187582}
+  - component: {fileID: 1581187583}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -450,35 +451,21 @@ MonoBehaviour:
   astronautInstance:
     AstronautId: 0
     MessagingData:
-      id: 0
-      sent_to: 
-      message: 
-      received_from: 0
+      AllMessages: []
     VitalsData:
       heart_rate: 0
       oxygen: 0
       suit_temp: 0
     GeosampleData:
-      id: 0
-      spec_data:
-        roack_example_data: 0
-      time: 
-      location:
-        latitude: 0
-        longitude: 0
+      AllGeosamples: []
     WaypointData:
-      id: 0
-      location:
-        latitude: 0
-        longitude: 0
-      type: 0
+      AllWaypoints: []
     TasklistData:
-      TaskList: []
+      AllTasks: []
     AlertData:
-      id_in_danger: 0
-      vital: 
-      vitalVal: 0
-    BreadCrumbs: []
+      AllAlerts: []
+    BreadCrumbData:
+      AllAlerts: []
     location:
       latitude: 0
       longitude: 0
@@ -498,6 +485,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   f: {fileID: 1581187581}
+--- !u!114 &1581187583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581187578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6770c09489017c749beaf85dccf00796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2004897606
 GameObject:
   m_ObjectHideFlags: 0

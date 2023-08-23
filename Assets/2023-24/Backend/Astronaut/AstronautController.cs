@@ -1,21 +1,36 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+// Messaging
 [System.Serializable]
 public class Messaging
 {
-    public int id;
-    public string sent_to;
-    public string message;
-    public int received_from;
+    public List<Message> AllMessages = new List<Message>();
 }
 
+[System.Serializable]
+public class Message
+{
+    public int id;
+    public int sent_to;
+    public string message;
+    public int from;
+}
+
+// Vitals
 [System.Serializable]
 public class Vitals
 {
     public int heart_rate;
     public float oxygen;
     public float suit_temp;
+}
+
+// Geosamples
+[System.Serializable]
+public class Geosamples
+{
+    public List<Geosample> AllGeosamples = new List<Geosample>();
 }
 
 [System.Serializable]
@@ -33,6 +48,13 @@ public class SpecData
     public int roack_example_data;
 }
 
+// Waypoints
+[System.Serializable]
+public class Waypoints
+{
+    public List<Waypoint> AllWaypoints = new List<Waypoint>();
+}
+
 [System.Serializable]
 public class Waypoint
 {
@@ -48,10 +70,11 @@ public enum WaypointType
     geo
 }
 
+// Tasklists
 [System.Serializable]
-public class Tasklist
+public class TaskList
 {
-    public List<TaskObj> TaskList = new List<TaskObj>();
+    public List<TaskObj> AllTasks = new List<TaskObj>();
 }
 
 [System.Serializable]
@@ -70,18 +93,32 @@ public enum TaskStatus
     Completed
 }
 
+// Alerts
 [System.Serializable]
-public class Alert
+public class Alerts
+{
+    public List<AlertObj> AllAlerts = new List<AlertObj>();
+}
+
+[System.Serializable]
+public class AlertObj
 {
     public int id_in_danger;
     public string vital;
     public float vitalVal;
 }
 
+// Breadcrumbs
 public enum BreadCrumbType
 {
     backtracking,
     navigation
+}
+
+[System.Serializable]
+public class AllBreadCrumbs
+{
+    public List<Breadcrumb> AllCrumbs = new List<Breadcrumb>();
 }
 
 [System.Serializable]
@@ -91,9 +128,28 @@ public class Breadcrumb
     public BreadCrumbType type;
 }
 
+// Location
 [System.Serializable]
 public class Location
 {
     public double latitude;
     public double longitude;
+    public int id;
+}
+
+// Data of other Fellow Astronauts
+[System.Serializable]
+public class FellowAstronauts
+{
+    public List<FellowAstronaut> AllFellowAstronauts = new List<FellowAstronaut>();
+}
+
+[System.Serializable]
+public class FellowAstronaut
+{
+    public int id;
+    public Location location;
+    public string color;
+    public Vitals vitals;
+    public bool navigating;
 }

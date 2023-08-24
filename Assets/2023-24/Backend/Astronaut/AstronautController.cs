@@ -41,6 +41,7 @@ public class Geosample
     public SpecData spec_data;
     public string time;
     public Location location;
+    public int author;
 }
 
 [System.Serializable]
@@ -62,6 +63,7 @@ public class Waypoint
     public int id;
     public Location location;
     public WaypointType type;
+    public int author;
 }
 
 public enum WaypointType

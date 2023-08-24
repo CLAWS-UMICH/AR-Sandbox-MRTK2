@@ -24,6 +24,7 @@ public class Vitals
     public int heart_rate;
     public float oxygen;
     public float suit_temp;
+    // ...
 }
 
 // Geosamples
@@ -45,7 +46,7 @@ public class Geosample
 [System.Serializable]
 public class SpecData
 {
-    public int roack_example_data;
+    public int rock_example_data;
 }
 
 // Waypoints
@@ -105,7 +106,7 @@ public class AlertObj
 {
     public int id_in_danger;
     public string vital;
-    public float vitalVal;
+    public float vital_val;
 }
 
 // Breadcrumbs
@@ -152,4 +153,5 @@ public class FellowAstronaut
     public string color;
     public Vitals vitals;
     public bool navigating;
+    public AllBreadCrumbs bread_crumbs;
 }

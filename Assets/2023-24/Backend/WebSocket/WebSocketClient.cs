@@ -98,6 +98,10 @@ public class WebSocketClient : MonoBehaviour
                 LocationData locationData = JsonUtility.FromJson<LocationData>(jsonData);
                 dataHandler.HandleLocationData(locationData.data, messageUse);
                 break;
+            case "Multiplayer":
+                MultiplayerData multiData = JsonUtility.FromJson<MultiplayerData>(jsonData);
+                dataHandler.HandleMultiplayerData(multiData.data, messageUse, multiData.id, multiData.dataToChange);
+                break;
             // Handle other message types similarly
             default:
                 Debug.LogWarning("Unknown message type: " + messageType);
@@ -167,4 +171,12 @@ public class AllBreadCrumbsData
 public class LocationData
 {
     public Location data;
+}
+
+[Serializable]
+public class MultiplayerData
+{
+    public FellowAstronauts data;
+    public int id;
+    public List<string> dataToChange;
 }

@@ -18,9 +18,16 @@ public class WebsocketDataHandler : MonoBehaviour
         {
             Debug.Log("GET");
 
-            // Convert the messaging data to JSON format and send to WebSocket client
-            string jsonData = JsonUtility.ToJson(f.astronautInstance.MessagingData);
-            
+            // Create a new CombinedData instance
+            MessagingData combinedData = new MessagingData
+            {
+                data = f.astronautInstance.MessagingData,
+                AstronautId = f.astronautInstance.AstronautId
+            };
+
+            // Convert the combined data to JSON format and send to WebSocket client
+            string jsonData = JsonUtility.ToJson(combinedData);
+
             wsClient.SendJsonData(jsonData);
         } 
         else if (use == "PUT")
@@ -75,8 +82,15 @@ public class WebsocketDataHandler : MonoBehaviour
         {
             Debug.Log("GET");
 
+            // Create a new CombinedData instance
+            VitalsData combinedData = new VitalsData
+            {
+                data = f.astronautInstance.VitalsData,
+                AstronautId = f.astronautInstance.AstronautId
+            };
+
             // Convert the vitals data to JSON format and send to WebSocket client
-            string jsonData = JsonUtility.ToJson(f.astronautInstance.VitalsData);
+            string jsonData = JsonUtility.ToJson(combinedData);
             wsClient.SendJsonData(jsonData);
         }
         else
@@ -91,8 +105,15 @@ public class WebsocketDataHandler : MonoBehaviour
         {
             Debug.Log("GET");
 
-            // Convert the geosample data to JSON format and send to the WebSocket client
-            string jsonData = JsonUtility.ToJson(f.astronautInstance.GeosampleData);
+            // Create a new CombinedData instance
+            GeosamplesData combinedData = new GeosamplesData
+            {
+                data = f.astronautInstance.GeosampleData,
+                AstronautId = f.astronautInstance.AstronautId
+            };
+
+            // Convert the vitals data to JSON format and send to WebSocket client
+            string jsonData = JsonUtility.ToJson(combinedData);
             wsClient.SendJsonData(jsonData);
         }
         else if (use == "PUT")
@@ -148,7 +169,16 @@ public class WebsocketDataHandler : MonoBehaviour
         if (use == "GET")
         {
             Debug.Log("GET");
-            string jsonData = JsonUtility.ToJson(f.astronautInstance.WaypointData);
+
+            // Create a new CombinedData instance
+            WaypointsData combinedData = new WaypointsData
+            {
+                data = f.astronautInstance.WaypointData,
+                AstronautId = f.astronautInstance.AstronautId
+            };
+
+            // Convert the vitals data to JSON format and send to WebSocket client
+            string jsonData = JsonUtility.ToJson(combinedData);
             wsClient.SendJsonData(jsonData);
         }
         else if (use == "PUT")
@@ -202,7 +232,16 @@ public class WebsocketDataHandler : MonoBehaviour
         if (use == "GET")
         {
             Debug.Log("GET");
-            string jsonData = JsonUtility.ToJson(f.astronautInstance.TasklistData);
+
+            // Create a new CombinedData instance
+            TaskListData combinedData = new TaskListData
+            {
+                data = f.astronautInstance.TasklistData,
+                AstronautId = f.astronautInstance.AstronautId
+            };
+
+            // Convert the vitals data to JSON format and send to WebSocket client
+            string jsonData = JsonUtility.ToJson(combinedData);
             wsClient.SendJsonData(jsonData);
         }
         else if (use == "PUT")
@@ -260,7 +299,16 @@ public class WebsocketDataHandler : MonoBehaviour
         {
             Debug.Log("GET");
 
-            string jsonData = JsonUtility.ToJson(f.astronautInstance.AlertData);
+            // Create a new CombinedData instance
+            AlertsData combinedData = new AlertsData
+            {
+                data = f.astronautInstance.AlertData,
+                AstronautId = f.astronautInstance.AstronautId
+            };
+
+            // Convert the vitals data to JSON format and send to WebSocket client
+            string jsonData = JsonUtility.ToJson(combinedData);
+
             wsClient.SendJsonData(jsonData);
         }
         else if (use == "PUT")
@@ -282,8 +330,15 @@ public class WebsocketDataHandler : MonoBehaviour
         {
             Debug.Log("GET");
 
-            // Convert the breadcrumb data to JSON format and send it to WebSocket
-            string jsonData = JsonUtility.ToJson(f.astronautInstance.BreadCrumbData);
+            // Create a new CombinedData instance
+            AllBreadCrumbsData combinedData = new AllBreadCrumbsData
+            {
+                data = f.astronautInstance.BreadCrumbData,
+                AstronautId = f.astronautInstance.AstronautId
+            };
+
+            // Convert the vitals data to JSON format and send to WebSocket client
+            string jsonData = JsonUtility.ToJson(combinedData);
             wsClient.SendJsonData(jsonData);
         }
         else
@@ -298,8 +353,16 @@ public class WebsocketDataHandler : MonoBehaviour
         {
             Debug.Log("GET");
 
-            // Convert the location data to JSON format and send it to WebSocket
-            string jsonData = JsonUtility.ToJson(f.astronautInstance.location);
+            // Create a new CombinedData instance
+            LocationData combinedData = new LocationData
+            {
+                data = f.astronautInstance.location,
+                AstronautId = f.astronautInstance.AstronautId
+            };
+
+            // Convert the vitals data to JSON format and send to WebSocket client
+            string jsonData = JsonUtility.ToJson(combinedData);
+
             wsClient.SendJsonData(jsonData);
         }
         else if (use == "PUT")

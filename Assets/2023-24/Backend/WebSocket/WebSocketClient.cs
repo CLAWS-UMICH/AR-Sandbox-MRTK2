@@ -129,48 +129,56 @@ public class JsonMessage
 public class MessagingData
 {
     public Messaging data;
+    public int AstronautId;
 }
 
 [Serializable]
 public class VitalsData
 {
     public Vitals data;
+    public int AstronautId;
 }
 
 [Serializable]
 public class GeosamplesData
 {
     public Geosamples data;
+    public int AstronautId;
 }
 
 [Serializable]
 public class WaypointsData
 {
     public Waypoints data;
+    public int AstronautId;
 }
 
 [Serializable]
 public class TaskListData
 {
     public TaskList data;
+    public int AstronautId;
 }
 
 [Serializable]
 public class AlertsData
 {
     public Alerts data;
+    public int AstronautId;
 }
 
 [Serializable]
 public class AllBreadCrumbsData
 {
     public AllBreadCrumbs data;
+    public int AstronautId;
 }
 
 [Serializable]
 public class LocationData
 {
     public Location data;
+    public int AstronautId;
 }
 
 [Serializable]
@@ -179,4 +187,5 @@ public class MultiplayerData
     public FellowAstronauts data;
     public int id;
     public List<string> dataToChange;
+    public int AstronautId;
 }

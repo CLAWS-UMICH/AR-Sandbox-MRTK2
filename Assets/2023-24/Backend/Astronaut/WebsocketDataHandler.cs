@@ -20,6 +20,7 @@ public class WebsocketDataHandler : MonoBehaviour
 
             // Convert the messaging data to JSON format and send to WebSocket client
             string jsonData = JsonUtility.ToJson(f.astronautInstance.MessagingData);
+            
             wsClient.SendJsonData(jsonData);
         } 
         else if (use == "PUT")
@@ -58,11 +59,9 @@ public class WebsocketDataHandler : MonoBehaviour
                 {
                     // TODO: Add new message to the messages
 
+                    f.astronautInstance.MessagingData.AllMessages.Add(newMessage);
                 }
             }
-
-            // Update the list of messages with the new data
-            f.astronautInstance.MessagingData.AllMessages = currentMessages;
         }
         else
         {

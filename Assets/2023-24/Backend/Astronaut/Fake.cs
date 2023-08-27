@@ -12,10 +12,6 @@ public class Fake : MonoBehaviour
 
         // Create fake Messaging data
         astronautInstance.MessagingData = new Messaging();
-        Message fakeMessage1 = new Message { id = 1, sent_to = 2, message = "Hello!", from = 3 };
-        Message fakeMessage2 = new Message { id = 2, sent_to = 1, message = "How are you?", from = 2 };
-        astronautInstance.MessagingData.AllMessages.Add(fakeMessage1);
-        astronautInstance.MessagingData.AllMessages.Add(fakeMessage2);
 
         // Create fake Vitals data
         astronautInstance.VitalsData = new Vitals();

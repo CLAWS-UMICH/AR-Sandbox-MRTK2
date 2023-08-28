@@ -40,35 +40,70 @@ public class WebsocketDataHandler : MonoBehaviour
             // Get the new list of messages from the data parameter
             List<Message> newMessages = data.AllMessages;
 
-            // Iterate through each new message and check if its ID is in current messages
-            foreach (Message newMessage in newMessages)
-            {
-                bool isNew = true;
+            List<Message> deletedMessages = new List<Message>();
+            List<Message> editedMessages = new List<Message>();
+            List<Message> newAddedMessages = new List<Message>();
 
-                // Check if the new message's ID is already in the current messages
-                foreach (Message currentMessage in currentMessages)
+            foreach (Message currentMessage in currentMessages)
+            {
+                bool messageFound = false;
+
+                foreach (Message newMessage in newMessages)
                 {
                     if (currentMessage.id == newMessage.id)
                     {
-                        isNew = false;
-                        // Compare attributes to check if it's different
+                        messageFound = true;
                         if (!currentMessage.Equals(newMessage))
                         {
-                            // TODO: Additional logic to handle the change
-
+                            editedMessages.Add(newMessage);
                         }
                         break;
                     }
                 }
 
-                // If the new message's ID was not found in the current messages, add it
-                if (isNew)
+                if (!messageFound)
                 {
-                    // TODO: Add new message to the messages
-
-                    f.astronautInstance.MessagingData.AllMessages.Add(newMessage);
+                    deletedMessages.Add(currentMessage);
                 }
             }
+
+            foreach (Message newMessage in newMessages)
+            {
+                bool isNew = true;
+
+                foreach (Message currentMessage in currentMessages)
+                {
+                    if (currentMessage.id == newMessage.id)
+                    {
+                        isNew = false;
+                        break;
+                    }
+                }
+
+                if (isNew)
+                {
+                    newAddedMessages.Add(newMessage);
+                }
+            }
+
+            // Publish events for each scenario
+            if (deletedMessages.Count > 0)
+            {
+                EventBus.Publish(new MessagesDeletedEvent(deletedMessages));
+            }
+
+            if (editedMessages.Count > 0)
+            {
+                EventBus.Publish(new MessagesEditedEvent(editedMessages));
+            }
+
+            if (newAddedMessages.Count > 0)
+            {
+                EventBus.Publish(new MessagesAddedEvent(newAddedMessages));
+            }
+
+            // Update the list of messages with the new data
+            f.astronautInstance.MessagingData.AllMessages = data.AllMessages;
         }
         else
         {
@@ -120,43 +155,78 @@ public class WebsocketDataHandler : MonoBehaviour
         {
             Debug.Log("PUT");
 
+            Debug.Log("PUT");
+
             // Get the current list of geosamples from the instance
             List<Geosample> currentGeosamples = f.astronautInstance.GeosampleData.AllGeosamples;
 
             // Get the new list of geosamples from the data parameter
             List<Geosample> newGeosamples = data.AllGeosamples;
 
-            // Iterate through each new geosample and check if its ID is in current geosamples
-            foreach (Geosample newSample in newGeosamples)
-            {
-                bool isNew = true;
+            List<Geosample> deletedGeosamples = new List<Geosample>();
+            List<Geosample> editedGeosamples = new List<Geosample>();
+            List<Geosample> newAddedGeosamples = new List<Geosample>();
 
-                // Check if the new geosample's ID is already in the current geosamples
-                foreach (Geosample currentSample in currentGeosamples)
+            foreach (Geosample currentSample in currentGeosamples)
+            {
+                bool sampleFound = false;
+
+                foreach (Geosample newSample in newGeosamples)
                 {
                     if (currentSample.id == newSample.id)
                     {
-                        isNew = false;
-                        // Compare attributes to check if it's different
+                        sampleFound = true;
                         if (!currentSample.Equals(newSample))
                         {
-                            // TODO: Additional logic to handle the change
-
+                            editedGeosamples.Add(newSample);
                         }
                         break;
                     }
                 }
 
-                // If the new geosample's ID was not found in the current geosamples, add it
-                if (isNew)
+                if (!sampleFound)
                 {
-                    // TODO: Add new Geosample to the geosamples
-
+                    deletedGeosamples.Add(currentSample);
                 }
             }
 
+            foreach (Geosample newSample in newGeosamples)
+            {
+                bool isNew = true;
+
+                foreach (Geosample currentSample in currentGeosamples)
+                {
+                    if (currentSample.id == newSample.id)
+                    {
+                        isNew = false;
+                        break;
+                    }
+                }
+
+                if (isNew)
+                {
+                    newAddedGeosamples.Add(newSample);
+                }
+            }
+
+            // Publish events for each scenario
+            if (deletedGeosamples.Count > 0)
+            {
+                EventBus.Publish(new GeosamplesDeletedEvent(deletedGeosamples));
+            }
+
+            if (editedGeosamples.Count > 0)
+            {
+                EventBus.Publish(new GeosamplesEditedEvent(editedGeosamples));
+            }
+
+            if (newAddedGeosamples.Count > 0)
+            {
+                EventBus.Publish(new GeosamplesAddedEvent(newAddedGeosamples));
+            }
+
             // Update the list of geosamples with the new data
-            f.astronautInstance.GeosampleData.AllGeosamples = currentGeosamples;
+            f.astronautInstance.GeosampleData.AllGeosamples = data.AllGeosamples;
         }
         else
         {
@@ -183,43 +253,78 @@ public class WebsocketDataHandler : MonoBehaviour
         }
         else if (use == "PUT")
         {
+            Debug.Log("PUT");
+
             // Get the current list of waypoints from the instance
             List<Waypoint> currentWaypoints = f.astronautInstance.WaypointData.AllWaypoints;
 
             // Get the new list of waypoints from the data parameter
             List<Waypoint> newWaypoints = data.AllWaypoints;
 
-            // Iterate through each new waypoint and check if its ID is in current waypoints
-            foreach (Waypoint newWaypoint in newWaypoints)
-            {
-                bool isNew = true;
+            List<Waypoint> deletedWaypoints = new List<Waypoint>();
+            List<Waypoint> editedWaypoints = new List<Waypoint>();
+            List<Waypoint> newAddedWaypoints = new List<Waypoint>();
 
-                // Check if the new waypoint's ID is already in the current waypoints
-                foreach (Waypoint currentWaypoint in currentWaypoints)
+            foreach (Waypoint currentWaypoint in currentWaypoints)
+            {
+                bool waypointFound = false;
+
+                foreach (Waypoint newWaypoint in newWaypoints)
                 {
                     if (currentWaypoint.id == newWaypoint.id)
                     {
-                        isNew = false;
-                        // Compare attributes to check if it's different
+                        waypointFound = true;
                         if (!currentWaypoint.Equals(newWaypoint))
                         {
-                            // TODO: Additional logic to handle the change
-
+                            editedWaypoints.Add(newWaypoint);
                         }
                         break;
                     }
                 }
 
-                // If the new waypoint's ID was not found in the current waypoints, add it
-                if (isNew)
+                if (!waypointFound)
                 {
-                    // TODO: Add new Waypoint to the waypoints
-
+                    deletedWaypoints.Add(currentWaypoint);
                 }
             }
 
+            foreach (Waypoint newWaypoint in newWaypoints)
+            {
+                bool isNew = true;
+
+                foreach (Waypoint currentWaypoint in currentWaypoints)
+                {
+                    if (currentWaypoint.id == newWaypoint.id)
+                    {
+                        isNew = false;
+                        break;
+                    }
+                }
+
+                if (isNew)
+                {
+                    newAddedWaypoints.Add(newWaypoint);
+                }
+            }
+
+            // Publish events for each scenario
+            if (deletedWaypoints.Count > 0)
+            {
+                EventBus.Publish(new WaypointsDeletedEvent(deletedWaypoints));
+            }
+
+            if (editedWaypoints.Count > 0)
+            {
+                EventBus.Publish(new WaypointsEditedEvent(editedWaypoints));
+            }
+
+            if (newAddedWaypoints.Count > 0)
+            {
+                EventBus.Publish(new WaypointsAddedEvent(newAddedWaypoints));
+            }
+
             // Update the list of waypoints with the new data
-            f.astronautInstance.WaypointData.AllWaypoints = newWaypoints;
+            f.astronautInstance.WaypointData.AllWaypoints = data.AllWaypoints;
         }
         else
         {
@@ -254,37 +359,70 @@ public class WebsocketDataHandler : MonoBehaviour
             // Get the new list of tasks from the data parameter
             List<TaskObj> newTasks = data.AllTasks;
 
-            // Iterate through each new task and check if its ID is in current tasks
-            foreach (TaskObj newTask in newTasks)
-            {
-                bool isFound = false;
+            List<TaskObj> deletedTasks = new List<TaskObj>();
+            List<TaskObj> editedTasks = new List<TaskObj>();
+            List<TaskObj> newAddedTasks = new List<TaskObj>();
 
-                // Find the corresponding task in current tasks by ID
-                foreach (TaskObj currentTask in currentTasks)
+            foreach (TaskObj currentTask in currentTasks)
+            {
+                bool taskFound = false;
+
+                foreach (TaskObj newTask in newTasks)
                 {
                     if (currentTask.id == newTask.id)
                     {
-                        isFound = true;
-                        // Compare attributes to check if it's different
+                        taskFound = true;
                         if (!currentTask.Equals(newTask))
                         {
-                            // TODO: Additional logic to handle the change
-
+                            editedTasks.Add(newTask);
                         }
                         break;
                     }
                 }
 
-                // If the new task's ID was not found in the current tasks, add it
-                if (!isFound)
+                if (!taskFound)
                 {
-                    // TODO: Add new Task to the tasks
-
+                    deletedTasks.Add(currentTask);
                 }
             }
 
+            foreach (TaskObj newTask in newTasks)
+            {
+                bool isNew = true;
+
+                foreach (TaskObj currentTask in currentTasks)
+                {
+                    if (currentTask.id == newTask.id)
+                    {
+                        isNew = false;
+                        break;
+                    }
+                }
+
+                if (isNew)
+                {
+                    newAddedTasks.Add(newTask);
+                }
+            }
+
+            // Publish events for each scenario
+            if (deletedTasks.Count > 0)
+            {
+                EventBus.Publish(new TasksDeletedEvent(deletedTasks));
+            }
+
+            if (editedTasks.Count > 0)
+            {
+                EventBus.Publish(new TasksEditedEvent(editedTasks));
+            }
+
+            if (newAddedTasks.Count > 0)
+            {
+                EventBus.Publish(new TasksAddedEvent(newAddedTasks));
+            }
+
             // Update the list of tasks with the new data
-            f.astronautInstance.TasklistData.AllTasks = currentTasks;
+            f.astronautInstance.TasklistData.AllTasks = data.AllTasks;
 
         }
         else
@@ -365,14 +503,6 @@ public class WebsocketDataHandler : MonoBehaviour
 
             wsClient.SendJsonData(jsonData);
         }
-        else if (use == "PUT")
-        {
-            Debug.Log("PUT");
-            // TODO: Update astronaut's location
-
-            // Update astranaut's class' location
-            f.astronautInstance.location = data;
-        }
         else
         {
             Debug.Log("Invalid use case from server");
@@ -393,7 +523,7 @@ public class WebsocketDataHandler : MonoBehaviour
             for (int i = 0; i < f.astronautInstance.FellowAstronautsData.AllFellowAstronauts.Count; i++)
             {
                 FellowAstronaut a = f.astronautInstance.FellowAstronautsData.AllFellowAstronauts[i];
-                if (a.id == id)
+                if (a.AstronautID == id)
                 {
                     astronautToChangeIndex = i;
                     astronautToChange = a;
@@ -402,31 +532,13 @@ public class WebsocketDataHandler : MonoBehaviour
 
             if (astronautToChange != null)
             {
-                // Edit based on the change and index
-                // TODO: Implement the logic to update the other astranaut data
-                // Use: astronautToChange and astronautToChangeIndex and changes
+                List<string> changedParameters = new List<string>();
 
                 foreach (string change in changes)
                 {
-                    if (change ==  "location")
+                    if (change == "location" || change == "vitals" || change == "breadcrumbs" || change == "navigating")
                     {
-                        // TODO: Update fellow astronaut's location
-                        // Use: astronautToChange.location
-                    }
-                    else if (change == "vitals")
-                    {
-                        // TODO: Update fellow astronaut's vitals
-                        // Use: astronautToChange.vitals
-                    }
-                    else if (change == "breadcrumbs")
-                    {
-                        // TODO: Update fellow astronaut's breadcrumbs
-                        // Use: astronautToChange.bread_crumbs
-                    } 
-                    else if (change == "navigating")
-                    {
-                        // TODO: Update Update fellow astronaut's navigating mode
-                        // Use: astronautToChange.navigating
+                        changedParameters.Add(change);
                     }
                     else
                     {
@@ -434,8 +546,14 @@ public class WebsocketDataHandler : MonoBehaviour
                     }
                 }
 
-                // Update the entire fellow astronauts data with the new data
-                f.astronautInstance.FellowAstronautsData = data;
+                if (changedParameters.Count > 0)
+                {
+                    // Publish an event indicating the changes to fellow astronaut's data
+                    EventBus.Publish(new FellowAstronautDataChangeEvent(astronautToChange, changedParameters));
+                }
+
+                // Update the fellow astronaut's data with the new data
+                f.astronautInstance.FellowAstronautsData.AllFellowAstronauts = data.AllFellowAstronauts;
             }
         }
         else

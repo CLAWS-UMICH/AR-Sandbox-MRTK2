@@ -150,7 +150,7 @@ public class FellowAstronauts
 [System.Serializable]
 public class FellowAstronaut
 {
-    public int id;
+    public int AstronautID;
     public Location location;
     public string color;
     public Vitals vitals;

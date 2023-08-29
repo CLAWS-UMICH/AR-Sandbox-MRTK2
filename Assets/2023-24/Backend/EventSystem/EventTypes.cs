@@ -78,7 +78,7 @@ public class VitalsUpdatedEvent
 }
 
 // Websockets
-// ----------------
+// --------------------------------------------------------------------------------
 
 // Messaging
 public class MessagesDeletedEvent

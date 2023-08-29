@@ -465,13 +465,16 @@ MonoBehaviour:
     AlertData:
       AllAlerts: []
     BreadCrumbData:
-      AllAlerts: []
+      AllCrumbs: []
     location:
       latitude: 0
       longitude: 0
+      id: 0
     currently_navigating: 0
     inDanger: 0
     color: 
+    FellowAstronautsData:
+      AllFellowAstronauts: []
 --- !u!114 &1581187582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,7 +487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31baa6b9013bb1e4cab85ddf7fd57335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  f: {fileID: 1581187581}
 --- !u!114 &1581187583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,6 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6770c09489017c749beaf85dccf00796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 1
 --- !u!1 &2004897606
 GameObject:
   m_ObjectHideFlags: 0

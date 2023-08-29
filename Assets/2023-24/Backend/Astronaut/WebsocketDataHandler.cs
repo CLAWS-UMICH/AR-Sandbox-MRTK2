@@ -2,10 +2,16 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+/*
+Name: Brian Schneider
+Description: This script handles data communication through websockets, including sending and receiving various types of data.
+ */
+
 public class WebsocketDataHandler : MonoBehaviour
 {
     private Fake f;
     private WebSocketClient wsClient;
+    [SerializeField] private bool debugMode = false;
 
     public void Start()
     {
@@ -16,13 +22,13 @@ public class WebsocketDataHandler : MonoBehaviour
     {
         if (use == "GET")
         {
-            Debug.Log("GET");
+            if (debugMode) Debug.Log("(GET) WebsocketDataHandler.cs: Sending MESSAGING data");
 
             // Create a new CombinedData instance
             MessagingData combinedData = new MessagingData
             {
-                data = f.astronautInstance.MessagingData,
-                AstronautId = f.astronautInstance.AstronautId
+                AstronautId = f.astronautInstance.AstronautId,
+                data = f.astronautInstance.MessagingData
             };
 
             // Convert the combined data to JSON format and send to WebSocket client
@@ -32,7 +38,7 @@ public class WebsocketDataHandler : MonoBehaviour
         } 
         else if (use == "PUT")
         {
-            Debug.Log("PUT");
+            if (debugMode) Debug.Log("(PUT) WebsocketDataHandler.cs: Updating MESSAGING data");
 
             // Get the current list of messages from the instance
             List<Message> currentMessages = f.astronautInstance.MessagingData.AllMessages;
@@ -115,13 +121,13 @@ public class WebsocketDataHandler : MonoBehaviour
     {
         if (use == "GET")
         {
-            Debug.Log("GET");
+            if (debugMode) Debug.Log("(GET) WebsocketDataHandler.cs: Sending VITALS data");
 
             // Create a new CombinedData instance
             VitalsData combinedData = new VitalsData
             {
-                data = f.astronautInstance.VitalsData,
-                AstronautId = f.astronautInstance.AstronautId
+                AstronautId = f.astronautInstance.AstronautId,
+                data = f.astronautInstance.VitalsData
             };
 
             // Convert the vitals data to JSON format and send to WebSocket client
@@ -138,13 +144,13 @@ public class WebsocketDataHandler : MonoBehaviour
     {
         if (use == "GET")
         {
-            Debug.Log("GET");
+            if (debugMode) Debug.Log("(GET) WebsocketDataHandler.cs: Sending GEOSAMPLE data");
 
             // Create a new CombinedData instance
             GeosamplesData combinedData = new GeosamplesData
             {
-                data = f.astronautInstance.GeosampleData,
-                AstronautId = f.astronautInstance.AstronautId
+                AstronautId = f.astronautInstance.AstronautId,
+                data = f.astronautInstance.GeosampleData
             };
 
             // Convert the vitals data to JSON format and send to WebSocket client
@@ -153,9 +159,7 @@ public class WebsocketDataHandler : MonoBehaviour
         }
         else if (use == "PUT")
         {
-            Debug.Log("PUT");
-
-            Debug.Log("PUT");
+            if (debugMode) Debug.Log("(PUT) WebsocketDataHandler.cs: Updating GEOSAMPLE data");
 
             // Get the current list of geosamples from the instance
             List<Geosample> currentGeosamples = f.astronautInstance.GeosampleData.AllGeosamples;
@@ -238,13 +242,13 @@ public class WebsocketDataHandler : MonoBehaviour
     {
         if (use == "GET")
         {
-            Debug.Log("GET");
+            if (debugMode) Debug.Log("(GET) WebsocketDataHandler.cs: Sending WAYPOINTS data");
 
             // Create a new CombinedData instance
             WaypointsData combinedData = new WaypointsData
             {
-                data = f.astronautInstance.WaypointData,
-                AstronautId = f.astronautInstance.AstronautId
+                AstronautId = f.astronautInstance.AstronautId,
+                data = f.astronautInstance.WaypointData
             };
 
             // Convert the vitals data to JSON format and send to WebSocket client
@@ -253,7 +257,7 @@ public class WebsocketDataHandler : MonoBehaviour
         }
         else if (use == "PUT")
         {
-            Debug.Log("PUT");
+            if (debugMode) Debug.Log("(PUT) WebsocketDataHandler.cs: Updating WAYPOINTS data");
 
             // Get the current list of waypoints from the instance
             List<Waypoint> currentWaypoints = f.astronautInstance.WaypointData.AllWaypoints;
@@ -336,13 +340,13 @@ public class WebsocketDataHandler : MonoBehaviour
     {
         if (use == "GET")
         {
-            Debug.Log("GET");
+            if (debugMode) Debug.Log("(GET) WebsocketDataHandler.cs: Sending TASKLIST data");
 
             // Create a new CombinedData instance
             TaskListData combinedData = new TaskListData
             {
-                data = f.astronautInstance.TasklistData,
-                AstronautId = f.astronautInstance.AstronautId
+                AstronautId = f.astronautInstance.AstronautId,
+                data = f.astronautInstance.TasklistData
             };
 
             // Convert the vitals data to JSON format and send to WebSocket client
@@ -351,7 +355,7 @@ public class WebsocketDataHandler : MonoBehaviour
         }
         else if (use == "PUT")
         {
-            Debug.Log("PUT");
+            if (debugMode) Debug.Log("(PUT) WebsocketDataHandler.cs: Updating TASKLIST data");
 
             // Get the current list of tasks from the instance
             List<TaskObj> currentTasks = f.astronautInstance.TasklistData.AllTasks;
@@ -435,13 +439,13 @@ public class WebsocketDataHandler : MonoBehaviour
     {
         if (use == "GET")
         {
-            Debug.Log("GET");
+            if (debugMode) Debug.Log("(GET) WebsocketDataHandler.cs: Sending ALERTS data");
 
             // Create a new CombinedData instance
             AlertsData combinedData = new AlertsData
             {
-                data = f.astronautInstance.AlertData,
-                AstronautId = f.astronautInstance.AstronautId
+                AstronautId = f.astronautInstance.AstronautId,
+                data = f.astronautInstance.AlertData
             };
 
             // Convert the vitals data to JSON format and send to WebSocket client
@@ -451,7 +455,7 @@ public class WebsocketDataHandler : MonoBehaviour
         }
         else if (use == "PUT")
         {
-            Debug.Log("PUT");
+            if (debugMode) Debug.Log("(PUT) WebsocketDataHandler.cs: Updating ALERTS data");
 
             // Convert the alerts data to JSON format and send it to WebSocket
             f.astronautInstance.AlertData.AllAlerts = data.AllAlerts;
@@ -466,13 +470,13 @@ public class WebsocketDataHandler : MonoBehaviour
     {
         if (use == "GET")
         {
-            Debug.Log("GET");
+            if (debugMode) Debug.Log("(GET) WebsocketDataHandler.cs: Sending BREADCRUMBS data");
 
             // Create a new CombinedData instance
             AllBreadCrumbsData combinedData = new AllBreadCrumbsData
             {
-                data = f.astronautInstance.BreadCrumbData,
-                AstronautId = f.astronautInstance.AstronautId
+                AstronautId = f.astronautInstance.AstronautId,
+                data = f.astronautInstance.BreadCrumbData
             };
 
             // Convert the vitals data to JSON format and send to WebSocket client
@@ -489,13 +493,13 @@ public class WebsocketDataHandler : MonoBehaviour
     {
         if (use == "GET")
         {
-            Debug.Log("GET");
+            if (debugMode) Debug.Log("(GET) WebsocketDataHandler.cs: Sending LOCATION data");
 
             // Create a new CombinedData instance
             LocationData combinedData = new LocationData
             {
-                data = f.astronautInstance.location,
-                AstronautId = f.astronautInstance.AstronautId
+                AstronautId = f.astronautInstance.AstronautId,
+                data = f.astronautInstance.location
             };
 
             // Convert the vitals data to JSON format and send to WebSocket client
@@ -513,7 +517,7 @@ public class WebsocketDataHandler : MonoBehaviour
     {
         if (use == "PUT")
         {
-            Debug.Log("PUT");
+            if (debugMode) Debug.Log("(PUT) WebsocketDataHandler.cs: Updating FELLOWASTRONAUT data");
 
             // Initialize variables to track changes
             FellowAstronaut astronautToChange = null;
@@ -561,4 +565,54 @@ public class WebsocketDataHandler : MonoBehaviour
             Debug.Log("Invalid use case from server");
         }
     }
+
+    // Public functions for to call to send data
+    public void SendMessageData()
+    {
+        Messaging emptyMessagingData = new Messaging();
+        HandleMessagingData(emptyMessagingData, "GET");
+    }
+
+    public void SendVitalsData()
+    {
+        Vitals emptyVitalsData = new Vitals();
+        HandleVitalsData(emptyVitalsData, "GET");
+    }
+
+    public void SendGeosampleData()
+    {
+        Geosamples emptyGeosampleData = new Geosamples();
+        HandleGeosamplesData(emptyGeosampleData, "GET");
+    }
+
+    public void SendWaypointData()
+    {
+        Waypoints emptyWaypointData = new Waypoints();
+        HandleWaypointsData(emptyWaypointData, "GET");
+    }
+
+    public void SendTasklistData()
+    {
+        TaskList emptyTasklistData = new TaskList();
+        HandleTaskListData(emptyTasklistData, "GET");
+    }
+
+    public void SendAlertsData()
+    {
+        Alerts emptyAlertsData = new Alerts();
+        HandleAlertsData(emptyAlertsData, "GET");
+    }
+    
+    public void SendBreadCrumbData()
+    {
+        AllBreadCrumbs emptyBreadCrumbData = new AllBreadCrumbs();
+        HandleAllBreadCrumbsData(emptyBreadCrumbData, "GET");
+    }
+
+    public void SendLocationData()
+    {
+        Location emptyLocationData = new Location();
+        HandleLocationData(emptyLocationData, "GET");
+    }
+
 }

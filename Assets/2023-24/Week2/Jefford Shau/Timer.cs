@@ -31,28 +31,28 @@ public class Timer : MonoBehaviour
         StartCoroutine(TimerLoop());
     }
 
-    // Update is called once per frame
     IEnumerator TimerLoop()
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
             if (!pause)
             {
+                text.text = FormatTime(hour, minute, second);
                 second++;
+                Debug.Log(second);
                 if (second % 60 == 0)
                 {
                     minute++;
                     second = 0;
                 }
-                else if (minute % 60 == 0 && minute != 0)
+                else if (minute % 59 == 0 && minute != 0)
                 {
                     hour++;
                     minute = 0;
                 }
             }
-            text.text = FormatTime(hour, minute, second);
             Debug.Log(text.text);
+            yield return new WaitForSeconds(1);
         }
     }
 

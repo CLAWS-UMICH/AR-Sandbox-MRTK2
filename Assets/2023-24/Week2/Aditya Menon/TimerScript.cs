@@ -5,30 +5,44 @@ using TMPro;
 
 public class TimerScript : MonoBehaviour
 {
+    int count = 0;
     GameObject screen;
     TextMeshPro textMeshPro;
+    private IEnumerator timerCoroutine;
     // Start is called before the first frame update
     void Start()
     {
         screen = GameObject.Find("Screen");
         textMeshPro = screen.transform.Find("Text").gameObject.GetComponent<TextMeshPro>();
         textMeshPro.text = "HH:MM:SS";
-    }
+        timerCoroutine = _UpdateTimer();
+}
     public void StartTimer()
     {
-        textMeshPro.text = "00:00:01";
+       StartCoroutine(timerCoroutine);
     }
     public void StopTimer()
     {
-        textMeshPro.text = "00:00:02";
+       StopCoroutine(timerCoroutine);
     }
     public void ResetTimer()
     {
-        textMeshPro.text = "00:00:00";
+        StopCoroutine(timerCoroutine);
+        count = 0;
+        textMeshPro.text = count.ToString();
     }
-    // Update is called once per frame
-    void Update()
+    IEnumerator _UpdateTimer()
     {
-        
+        while(true)
+        {
+            yield return new WaitForSeconds(1.0f);
+            count++;
+            UpdateUI();
+        }
     }
+    void UpdateUI()
+    {
+        textMeshPro.text = count.ToString();
+    }
+
 }

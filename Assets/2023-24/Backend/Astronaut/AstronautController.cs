@@ -104,7 +104,7 @@ public class Waypoint
 {
     public int id;
     public Location location;
-    public WaypointType type;
+    public int type; // 0 = regular, 1 = danger, 2 = geo
     public int author;
 
     public override bool Equals(object obj)
@@ -122,13 +122,6 @@ public class Waypoint
     }
 }
 
-public enum WaypointType
-{
-    regular,
-    danger,
-    geo
-}
-
 // Tasklists
 [System.Serializable]
 public class TaskList
@@ -140,7 +133,7 @@ public class TaskList
 public class TaskObj
 {
     public int id;
-    public TaskStatus status;
+    public int status; // 0 = InProgress, 1 = Completed
     public string title;
     public string description;
     public int shared_with;
@@ -159,12 +152,6 @@ public class TaskObj
                status == otherTask.status &&
                shared_with == otherTask.shared_with;
     }
-}
-
-public enum TaskStatus
-{
-    InProgress,
-    Completed
 }
 
 // Alerts

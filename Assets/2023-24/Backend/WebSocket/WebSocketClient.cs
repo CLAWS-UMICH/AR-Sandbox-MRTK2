@@ -39,9 +39,6 @@ public class WebSocketClient : MonoBehaviour
     {
         if (e.Data != null)
         {
-            // Handle incoming JSON messages
-            string receivedData = e.Data;
-            Debug.Log("Received WebSocket message: " + receivedData);
             try
             {
                 HandleJsonMessage(e.Data);

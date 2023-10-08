@@ -257,7 +257,6 @@ public class WebsocketDataHandler : MonoBehaviour
         }
         else if (use == "PUT")
         {
-            //Debug.Log(data.AllWaypoints[0].type);
             if (debugMode) Debug.Log("(PUT) WebsocketDataHandler.cs: Updating WAYPOINTS data");
 
             // Get the current list of waypoints from the instance
@@ -296,7 +295,6 @@ public class WebsocketDataHandler : MonoBehaviour
             foreach (Waypoint newWaypoint in newWaypoints)
             {
                 bool isNew = true;
-                //Debug.Log(newWaypoint.type);
 
                 foreach (Waypoint currentWaypoint in currentWaypoints)
                 {

@@ -21,10 +21,13 @@ public class ScrollHandler : MonoBehaviour
 
     public void Start()
     {
-        FindIndexes(); // Initializes the top and down indexes
-        EnableButtons(); // Enable initial buttons
-        CollectAllButtons(); // Collect all buttons into the list
-        CorrectLocations(); // Adjust enabled buttons' positions
+        if (allButtons.Count > 0)
+        {
+            FindIndexes(); // Initializes the top and down indexes
+            EnableButtons(); // Enable initial buttons
+            CollectAllButtons(); // Collect all buttons into the list
+            CorrectLocations(); // Adjust enabled buttons' positions
+        }
     }
 
     // Initializes the top and down indexes

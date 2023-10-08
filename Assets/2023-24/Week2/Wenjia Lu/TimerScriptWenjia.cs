@@ -10,7 +10,7 @@ using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
-public class TimerScript : MonoBehaviour
+public class TimerScriptWenjia : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject screen;

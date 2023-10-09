@@ -71,6 +71,12 @@ public class ScrollEvent
 
 public class VitalsUpdatedEvent
 {
+    public Vitals vitals { get; private set; }
+
+    public VitalsUpdatedEvent(Vitals v)
+    {
+        vitals = v;
+    }
     public override string ToString()
     {
         return "<VitalsUpdatedEvent>: vitals were updated";

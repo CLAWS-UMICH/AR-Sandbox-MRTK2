@@ -39,6 +39,7 @@ public class Vitals
     public int heart_rate;
     public float oxygen;
     public float suit_temp;
+    public float blood_pressure;
     // ...
 
 }

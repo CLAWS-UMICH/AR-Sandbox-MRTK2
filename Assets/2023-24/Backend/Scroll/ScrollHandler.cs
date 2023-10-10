@@ -19,9 +19,8 @@ public class ScrollHandler : MonoBehaviour
     private int top = -1; // Index of the topmost visible button
     private int bottom = -1; // Index of the bottommost visible button
 
-    public void Start()
+    private void Start()
     {
-
         Fix();
     }
 
@@ -83,7 +82,7 @@ public class ScrollHandler : MonoBehaviour
     }
 
     // Move the top -> bottom indexed buttons to their correct locations based on the offset
-    public void CorrectLocations()
+    private void CorrectLocations()
     {
         Transform parentTransform = transform;
 
@@ -208,10 +207,20 @@ public class ScrollHandler : MonoBehaviour
 
     public void Fix()
     {
-        FindIndexes(); // Initializes the top and down indexes
-        EnableButtons(); // Enable initial buttons
-        CollectAllButtons(); // Collect all buttons into the list
-        CorrectLocations(); // Adjust enabled buttons' positions
+        if (allButtons.Count > 0)
+        {
+            FindIndexes(); // Initializes the top and down indexes
+            EnableButtons(); // Enable initial buttons
+            CollectAllButtons(); // Collect all buttons into the list
+            CorrectLocations(); // Adjust enabled buttons' positions
+        }
+    }
+
+    // Function to handle button deletion based on GameObject
+    public void HandleAddingButton(GameObject newButton)
+    {
+        Instantiate(newButton);
+        Fix();
     }
 
 

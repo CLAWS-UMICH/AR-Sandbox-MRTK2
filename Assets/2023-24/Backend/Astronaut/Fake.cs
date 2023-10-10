@@ -26,12 +26,12 @@ public class Fake : MonoBehaviour
 
         // Create fake Waypoints data
         astronautInstance.WaypointData = new Waypoints();
-        Waypoint fakeWaypoint = new Waypoint { id = 1, type = WaypointType.regular, author = 1 };
+        Waypoint fakeWaypoint = new Waypoint { id = 1, type = 0, author = 1 };
         astronautInstance.WaypointData.AllWaypoints.Add(fakeWaypoint);
 
         // Create fake Tasklist data
         astronautInstance.TasklistData = new TaskList();
-        TaskObj fakeTask = new TaskObj { status = TaskStatus.InProgress, title = "Explore", description = "Collect samples", id = 1, shared_with = 2 };
+        TaskObj fakeTask = new TaskObj { status = 0, title = "Explore", description = "Collect samples", id = 1, shared_with = 2 };
         astronautInstance.TasklistData.AllTasks.Add(fakeTask);
 
         // Create fake Alerts data

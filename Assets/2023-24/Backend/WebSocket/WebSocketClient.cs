@@ -39,7 +39,6 @@ public class WebSocketClient : MonoBehaviour
     {
         if (e.Data != null)
         {
-            // Handle incoming JSON messages
             try
             {
                 HandleJsonMessage(e.Data);

@@ -134,6 +134,15 @@ public class WebsocketDataHandler : MonoBehaviour
             string jsonData = JsonUtility.ToJson(combinedData);
             wsClient.SendJsonData(jsonData);
         }
+        else if (use == "PUT")
+        {
+            if (debugMode) Debug.Log("(PUT) WebsocketDataHandler.cs: Updating VITALS data");
+
+            EventBus.Publish(new VitalsUpdatedEvent(data));
+
+            // Update the list of geosamples with the new data
+            f.astronautInstance.VitalsData = data;
+        }
         else
         {
             Debug.Log("Invalid use case from server");

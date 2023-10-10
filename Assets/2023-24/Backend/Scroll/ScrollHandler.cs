@@ -21,6 +21,7 @@ public class ScrollHandler : MonoBehaviour
 
     private void Start()
     {
+        CollectAllButtons();
         Fix();
     }
 

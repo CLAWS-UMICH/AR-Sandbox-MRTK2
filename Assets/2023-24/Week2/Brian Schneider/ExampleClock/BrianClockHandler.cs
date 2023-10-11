@@ -6,7 +6,8 @@ using TMPro; // needed for text
 
 public class BrianClockHandler : MonoBehaviour
 {
-    GameObject screen;
+    GameObject screen1;
+    GameObject screen2;
     TextMeshPro textObject;
     bool timerOn = false;
     int elapsedTime = 0;
@@ -14,8 +15,9 @@ public class BrianClockHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        screen = GameObject.Find("Screen"); // Look for the parent object called Screen
-        textObject = screen.transform.Find("Title").gameObject.GetComponent<TextMeshPro>(); // Find the child called Title
+        screen1 = GameObject.Find("Screen"); // Look for the parent object called Screen
+        screen2 = screen1.transform.Find("Screen1").gameObject;
+        textObject = screen2.transform.Find("Title").gameObject.GetComponent<TextMeshPro>(); // Find the child called Title
         textObject.text = "00:00:00"; // Set the text component
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VitalsController : MonoBehaviour
+public class VitalsController_1 : MonoBehaviour
 {
 
     private Subscription<VitalsUpdatedEvent> vitalsUpdatedEvent;

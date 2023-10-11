@@ -16,8 +16,8 @@ public class BrianClockHandler : MonoBehaviour
     void Start()
     {
         screen1 = GameObject.Find("Screen"); // Look for the parent object called Screen
-        screen2 = screen1.transform.Find("Screen1").gameObject;
-        textObject = screen2.transform.Find("Title").gameObject.GetComponent<TextMeshPro>(); // Find the child called Title
+        screen2 = screen1.transform.Find("Screen1").gameObject; // Get child parent object called Screen1
+        textObject = screen2.transform.Find("Title").gameObject.GetComponent<TextMeshPro>(); // Find the child of Screen1 called Title
         textObject.text = "00:00:00"; // Set the text component
     }
 

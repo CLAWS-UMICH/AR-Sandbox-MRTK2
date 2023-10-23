@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WebSocketSharp;
 using System;
+using PimDeWitte.UnityMainThreadDispatcher;
 
 public class WebSocketClient : MonoBehaviour
 {
@@ -41,20 +42,28 @@ public class WebSocketClient : MonoBehaviour
         {
             try
             {
-                HandleJsonMessage(e.Data);
+                UnityMainThreadDispatcher.Instance().Enqueue(ThisWillBeExecutedOnTheMainThread(e.Data));
             }
             catch (Exception ex)
             {
-                Debug.LogError("Error handling JSON message: " + ex.Message);
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Debug.LogError("Error handling JSON message: " + ex.Message));
             }
         }
         else
         {
-            Debug.LogWarning("Received empty JSON data.");
+            UnityMainThreadDispatcher.Instance().Enqueue(() => Debug.LogWarning("Received empty JSON data."));
         }
     }
 
-    private void HandleJsonMessage(string jsonData)
+    public IEnumerator ThisWillBeExecutedOnTheMainThread(string jsonData)
+    {
+        //Debug.Log("This is executed from the main thread");
+        HandleJsonMessage(jsonData);
+        yield return null;
+    }
+
+
+    public void HandleJsonMessage(string jsonData)
     {
         Debug.Log(jsonData);
         // Deserialize the JSON into JsonMessage class

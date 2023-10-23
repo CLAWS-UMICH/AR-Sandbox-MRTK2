@@ -10,7 +10,7 @@ public enum LayoutType
 
 public class ScrollHandler : MonoBehaviour
 {
-    [SerializeField] private float spacing = 1f; // Distance between gameobjects
+    [SerializeField] private float spacing = 0.1f; // Distance between gameobjects
     [SerializeField] private int buttonsEnabledCount = 3; // Number of gameobjects to scroll per button press
     [SerializeField] private LayoutType layoutType; // Type of layout
 
@@ -86,6 +86,10 @@ public class ScrollHandler : MonoBehaviour
     private void CorrectLocations()
     {
         Transform parentTransform = transform;
+        if (allButtons.Count == 0)
+        {
+            return;
+        }
 
         for (int i = top; i < bottom + 1; i++)
         {
@@ -143,14 +147,15 @@ public class ScrollHandler : MonoBehaviour
 
         if (deletedIndex >= 0)
         {
-            // Remove the button at the deleted index
-            RemoveButton(deletedIndex);
-
             // Destroy the deleted GameObject
             Destroy(deletedButton);
 
+            // Remove the button at the deleted index
+            RemoveButton(deletedIndex);
+
             // Update the scroll layout
             CorrectLocations();
+
         }
         else
         {
@@ -165,21 +170,43 @@ public class ScrollHandler : MonoBehaviour
         {
             allButtons.RemoveAt(index);
 
-            // Update top and bottom indexes considering removed button
-            if (top == index)
+            // Update top and bottom indexes after button removal
+            if (top >= index)
             {
-                top = Mathf.Max(top - 1, 0); // Decrement top index, but keep it >= 0
+                top = Mathf.Max(top - 1, 0);
+            }
+
+            if (bottom >= index)
+            {
+                bottom = Mathf.Max(bottom - 1, 0);
             }
 
             Activate(top, bottom);
-            CorrectLocations();
         }
     }
 
     // Activates buttons from start -> stop range
     private void Activate(int start, int stop)
     {
-        for (int i = start; i < stop + 1; i++)
+        // Ensure that start and stop indices are within the valid range
+        if (start < 0)
+        {
+            start = 0;
+        }
+
+        if (stop >= allButtons.Count)
+        {
+            stop = allButtons.Count - 1;
+        }
+
+        if (allButtons.Count == 0)
+        {
+            start = -1;
+            stop = -1;
+            return;
+        }
+
+        for (int i = start; i <= stop; i++)
         {
             allButtons[i].gameObject.SetActive(true);
         }
@@ -208,6 +235,7 @@ public class ScrollHandler : MonoBehaviour
 
     public void Fix()
     {
+        CollectAllButtons();
         if (allButtons.Count > 0)
         {
             FindIndexes(); // Initializes the top and down indexes
@@ -218,10 +246,12 @@ public class ScrollHandler : MonoBehaviour
     }
 
     // Function to handle button deletion based on GameObject
-    public void HandleAddingButton(GameObject newButton)
+    public GameObject HandleAddingButton(GameObject newButton)
     {
-        Instantiate(newButton);
+        GameObject button = Instantiate(newButton, transform);
         Fix();
+
+        return button;
     }
 
 

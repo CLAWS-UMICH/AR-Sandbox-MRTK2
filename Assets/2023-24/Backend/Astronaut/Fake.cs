@@ -10,7 +10,7 @@ public class Fake : MonoBehaviour
     {
         astronautInstance.AstronautId = 1;
 
-        // Create fake Messaging data
+        /*// Create fake Messaging data
         astronautInstance.MessagingData = new Messaging();
 
         // Create fake Vitals data
@@ -44,7 +44,7 @@ public class Fake : MonoBehaviour
         Breadcrumb breadcrumb1 = new Breadcrumb { location = new Location { latitude = 37.7751, longitude = -122.4196 }, type = BreadCrumbType.navigation };
         Breadcrumb breadcrumb2 = new Breadcrumb { location = new Location { latitude = 37.7752, longitude = -122.4197 }, type = BreadCrumbType.backtracking };
         astronautInstance.BreadCrumbData.AllCrumbs.Add(breadcrumb1);
-        astronautInstance.BreadCrumbData.AllCrumbs.Add(breadcrumb2);
+        astronautInstance.BreadCrumbData.AllCrumbs.Add(breadcrumb2);*/
 
         // Set other properties
         astronautInstance.location = new Location { latitude = 37.7749, longitude = -122.4194 };

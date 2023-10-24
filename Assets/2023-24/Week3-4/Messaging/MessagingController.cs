@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MessagingController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class MessagingController : MonoBehaviour
     private Subscription<MessagesEditedEvent> messagesEditedEvent;
     private Subscription<MessagesAddedEvent> messagesAddedEvent;
 
+    private TextMeshPro msgText;
+    GameObject parentObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +19,10 @@ public class MessagingController : MonoBehaviour
         messagesDeletedEvent = EventBus.Subscribe<MessagesDeletedEvent>(OnMessagesDeleted);
         messagesEditedEvent = EventBus.Subscribe<MessagesEditedEvent>(OnMessagesEdited);
         messagesAddedEvent = EventBus.Subscribe<MessagesAddedEvent>(OnMessagesAdded);
+
+        parentObject = GameObject.Find("MessageObject");
+        msgText = parentObject.transform.Find("DisplayedMessage").gameObject.GetComponent<TextMeshPro>();
+        msgText.text = "no current message";
     }
 
     void OnDestroy()
@@ -53,6 +60,7 @@ public class MessagingController : MonoBehaviour
     {
         //Debug.Log("Added");
         List<Message> newAddedMessages = e.NewAddedMessages; // Which messages are new
+        msgText.text = newAddedMessages[0].message;
         // Update the UI to reflect the new messages
     }
 }

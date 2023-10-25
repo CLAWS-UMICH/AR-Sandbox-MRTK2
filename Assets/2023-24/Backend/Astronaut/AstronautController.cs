@@ -186,11 +186,6 @@ public class AlertObj
 }
 
 // Breadcrumbs
-public enum BreadCrumbType
-{
-    backtracking,
-    navigation
-}
 
 [System.Serializable]
 public class AllBreadCrumbs
@@ -216,7 +211,7 @@ public class Breadcrumb
 {
     public int id;
     public Location location;
-    public BreadCrumbType type;
+    public int type; // 0: backtracking and 1: navigation
 
     public override bool Equals(object obj)
     {

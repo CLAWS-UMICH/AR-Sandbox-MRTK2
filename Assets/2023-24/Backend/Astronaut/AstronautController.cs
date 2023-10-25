@@ -259,7 +259,7 @@ public class FellowAstronauts
 [System.Serializable]
 public class FellowAstronaut
 {
-    public int AstronautID;
+    public int id;
     public Location location;
     public string color;
     public Vitals vitals;
@@ -274,7 +274,7 @@ public class FellowAstronaut
         }
 
         FellowAstronaut otherA = (FellowAstronaut)obj;
-        return AstronautID == otherA.AstronautID &&
+        return id == otherA.id &&
                location.Equals(otherA.location) &&
                color == otherA.color &&
                vitals.Equals(otherA.vitals) &&

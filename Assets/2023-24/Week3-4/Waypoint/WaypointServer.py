@@ -8,6 +8,18 @@ import asyncio
 import websockets # If this gives a warning/error, open command line and do 'pip install websockets'
 import json
 
+async def first_send(websocket):
+    data = {
+        "id" : "1",
+        "type": "INITIAL",
+    }
+
+    # Convert the data to a JSON string
+    message = json.dumps(data)
+
+    # Send the JSON message to the connected client (Unity)
+    await websocket.send(message)
+
 async def send_data_initial(websocket):
     data = {
         "id" : "1",
@@ -53,6 +65,7 @@ async def send_data_initial(websocket):
     # Send the JSON message to the connected client (Unity)
     await websocket.send(message)
 
+
 async def send_data_deleted(websocket):
     data = {
         "id" : "1",
@@ -83,21 +96,33 @@ async def send_data_deleted(websocket):
         }
     }
 
+
     # Convert the data to a JSON string
     message = json.dumps(data)
 
     # Send the JSON message to the connected client (Unity)
     await websocket.send(message)
 
+async def send_data_periodically(websocket):
+    while True:
+        await send_data_initial(websocket)
+        await asyncio.sleep(5)
+        await send_data_deleted(websocket)
+        await asyncio.sleep(5)
+
 async def handle_client(websocket, path):
     try:
+        await first_send(websocket)
+        message = await websocket.recv()
+        print(f"Received message from client: {message}")
+        send_task = asyncio.create_task(send_data_periodically(websocket))
+
         while True:
-            await send_data_initial(websocket)
-            await asyncio.sleep(5)
-            await send_data_deleted(websocket)
-            await asyncio.sleep(5)
+            message = await websocket.recv()
+            print(f"Received message from client: {message}")
+
     except websockets.exceptions.ConnectionClosed:
-        pass
+        send_task.cancel()
 
 start_server = websockets.serve(handle_client, "localhost", 8080)
 

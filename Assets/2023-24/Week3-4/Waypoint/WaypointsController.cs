@@ -28,6 +28,8 @@ public class WaypointsController : MonoBehaviour
         location = waypointPrefab.transform.Find("Location").gameObject.GetComponent<TextMeshPro>();
         type = waypointPrefab.transform.Find("Type").gameObject.GetComponent<TextMeshPro>();
         author = waypointPrefab.transform.Find("Author").gameObject.GetComponent<TextMeshPro>();
+
+        sh = GameObject.Find("ScrollObjects");
         // Subscribe to the events
         waypointsDeletedEvent = EventBus.Subscribe<WaypointsDeletedEvent>(OnWaypointsDeleted);
         waypointsEditedEvent = EventBus.Subscribe<WaypointsEditedEvent>(OnWaypointsEdited);

@@ -12,16 +12,22 @@ public class WaypointsController : MonoBehaviour
     private Subscription<WaypointsAddedEvent> waypointsAddedEvent;
 
     private ScrollHandler scrollHandler;
+    private GameObject sh;
     public GameObject waypointPrefab;
     TextMeshPro id;
     TextMeshPro location;
     TextMeshPro type;
     TextMeshPro author;
-    
+    private Dictionary<int, GameObject> idToButton = new Dictionary<int, GameObject>();
+
 
     // Start is called before the first frame update
     void Start()
     {
+        id = waypointPrefab.transform.Find("Id").gameObject.GetComponent<TextMeshPro>();
+        location = waypointPrefab.transform.Find("Location").gameObject.GetComponent<TextMeshPro>();
+        type = waypointPrefab.transform.Find("Type").gameObject.GetComponent<TextMeshPro>();
+        author = waypointPrefab.transform.Find("Author").gameObject.GetComponent<TextMeshPro>();
         // Subscribe to the events
         waypointsDeletedEvent = EventBus.Subscribe<WaypointsDeletedEvent>(OnWaypointsDeleted);
         waypointsEditedEvent = EventBus.Subscribe<WaypointsEditedEvent>(OnWaypointsEdited);
@@ -66,22 +72,15 @@ public class WaypointsController : MonoBehaviour
         List<Waypoint> newAddedWaypoints = e.NewAddedWaypoints; // Which waypoints are new
         foreach (Waypoint currentAddedWaypoint in newAddedWaypoints)
         {
-            //Push gameobjects to a list for the delete function
-            GameObject newGameObject = Instantiate(waypointPrefab, scrollHandler.transform);
-            if (newGameObject != null)
-            {
-                id = newGameObject.transform.Find("Id").gameObject.GetComponent<TextMeshPro>();
-                location = newGameObject.transform.Find("Location").gameObject.GetComponent<TextMeshPro>();
-                type = newGameObject.transform.Find("Type").gameObject.GetComponent<TextMeshPro>();
-                author = newGameObject.transform.Find("Author").gameObject.GetComponent<TextMeshPro>();
-
-                id.text = currentAddedWaypoint.id.ToString();
-                location.text = currentAddedWaypoint.location.ToString();
-                type.text = currentAddedWaypoint.type.ToString();
-                author.text = currentAddedWaypoint.author.ToString();
-            }
-
+            id.text = currentAddedWaypoint.id.ToString();
+            location.text = currentAddedWaypoint.location.ToString();
+            type.text = currentAddedWaypoint.type.ToString();
+            author.text = currentAddedWaypoint.author.ToString();
+   
+            GameObject newButton = sh.GetComponent<ScrollHandler>().HandleAddingButton(waypointPrefab);
+            idToButton.Add(currentAddedWaypoint.id, newButton);
         }
+
         // Update the UI to reflect the new waypoints
     }
 }

@@ -186,11 +186,6 @@ public class AlertObj
 }
 
 // Breadcrumbs
-public enum BreadCrumbType
-{
-    backtracking,
-    navigation
-}
 
 [System.Serializable]
 public class AllBreadCrumbs
@@ -216,7 +211,7 @@ public class Breadcrumb
 {
     public int id;
     public Location location;
-    public BreadCrumbType type;
+    public int type; // 0: backtracking and 1: navigation
 
     public override bool Equals(object obj)
     {
@@ -264,7 +259,7 @@ public class FellowAstronauts
 [System.Serializable]
 public class FellowAstronaut
 {
-    public int AstronautID;
+    public int id;
     public Location location;
     public string color;
     public Vitals vitals;
@@ -279,7 +274,7 @@ public class FellowAstronaut
         }
 
         FellowAstronaut otherA = (FellowAstronaut)obj;
-        return AstronautID == otherA.AstronautID &&
+        return id == otherA.id &&
                location.Equals(otherA.location) &&
                color == otherA.color &&
                vitals.Equals(otherA.vitals) &&

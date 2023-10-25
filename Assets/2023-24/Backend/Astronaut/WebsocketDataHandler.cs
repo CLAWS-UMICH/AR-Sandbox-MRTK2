@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Text.Json;
 
 /*
 Name: Brian Schneider
@@ -18,6 +20,50 @@ public class WebsocketDataHandler : MonoBehaviour
         wsClient = GetComponent<WebSocketClient>();
         f = GetComponent<Fake>();
     }
+
+    public void HandleInitialData(InitialData data)
+    {
+        try
+        {
+            f.astronautInstance.id = data.id;
+
+            // Create a new CombinedData instance
+            InitialData combinedData = new InitialData
+            {
+                id = f.astronautInstance.id,
+                type = "INITIAL",
+                data = "SUCCESS"
+            };
+
+            // Convert the combined data to JSON format and send to WebSocket client
+            string jsonData = JsonUtility.ToJson(combinedData);
+
+            wsClient.SendJsonData(jsonData);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("An exception occurred: " + ex.Message);
+            try
+            {
+                // Create a new CombinedData instance
+                InitialData combinedData = new InitialData
+                {
+                    id = f.astronautInstance.id,
+                    type = "INITIAL",
+                    data = "FAILURE"
+                };
+
+                // Convert the combined data to JSON format and send to WebSocket client
+                string jsonData = JsonUtility.ToJson(combinedData);
+
+                wsClient.SendJsonData(jsonData);
+            }
+            catch (Exception ex1)
+            {
+                Debug.LogError("An exception occurred: " + ex1.Message);
+            }
+        }
+    }
     public void HandleMessagingData(Messaging data, string use)
     {
         if (use == "GET")
@@ -27,7 +73,9 @@ public class WebsocketDataHandler : MonoBehaviour
             // Create a new CombinedData instance
             MessagingData combinedData = new MessagingData
             {
-                AstronautId = f.astronautInstance.AstronautId,
+                id = f.astronautInstance.id,
+                type = "Messaging",
+                use = "PUT",
                 data = f.astronautInstance.MessagingData
             };
 
@@ -126,8 +174,10 @@ public class WebsocketDataHandler : MonoBehaviour
             // Create a new CombinedData instance
             VitalsData combinedData = new VitalsData
             {
-                AstronautId = f.astronautInstance.AstronautId,
-                data = f.astronautInstance.VitalsData
+                id = f.astronautInstance.id,
+                type = "Vitals",
+                use = "PUT",
+                data = f.astronautInstance.VitalsData,
             };
 
             // Convert the vitals data to JSON format and send to WebSocket client
@@ -158,7 +208,9 @@ public class WebsocketDataHandler : MonoBehaviour
             // Create a new CombinedData instance
             GeosamplesData combinedData = new GeosamplesData
             {
-                AstronautId = f.astronautInstance.AstronautId,
+                id = f.astronautInstance.id,
+                type = "Geosamples",
+                use = "PUT",
                 data = f.astronautInstance.GeosampleData
             };
 
@@ -256,7 +308,9 @@ public class WebsocketDataHandler : MonoBehaviour
             // Create a new CombinedData instance
             WaypointsData combinedData = new WaypointsData
             {
-                AstronautId = f.astronautInstance.AstronautId,
+                id = f.astronautInstance.id,
+                type = "Waypoints",
+                use = "PUT",
                 data = f.astronautInstance.WaypointData
             };
 
@@ -354,7 +408,9 @@ public class WebsocketDataHandler : MonoBehaviour
             // Create a new CombinedData instance
             TaskListData combinedData = new TaskListData
             {
-                AstronautId = f.astronautInstance.AstronautId,
+                id = f.astronautInstance.id,
+                type = "TaskList",
+                use = "PUT",
                 data = f.astronautInstance.TasklistData
             };
 
@@ -453,7 +509,9 @@ public class WebsocketDataHandler : MonoBehaviour
             // Create a new CombinedData instance
             AlertsData combinedData = new AlertsData
             {
-                AstronautId = f.astronautInstance.AstronautId,
+                id = f.astronautInstance.id,
+                type = "Alerts",
+                use = "PUT",
                 data = f.astronautInstance.AlertData
             };
 
@@ -484,7 +542,9 @@ public class WebsocketDataHandler : MonoBehaviour
             // Create a new CombinedData instance
             AllBreadCrumbsData combinedData = new AllBreadCrumbsData
             {
-                AstronautId = f.astronautInstance.AstronautId,
+                id = f.astronautInstance.id,
+                type = "AllBreadCrumbs",
+                use = "PUT",
                 data = f.astronautInstance.BreadCrumbData
             };
 
@@ -507,7 +567,9 @@ public class WebsocketDataHandler : MonoBehaviour
             // Create a new CombinedData instance
             LocationData combinedData = new LocationData
             {
-                AstronautId = f.astronautInstance.AstronautId,
+                id = f.astronautInstance.id,
+                type = "Location",
+                use = "PUT",
                 data = f.astronautInstance.location
             };
 
@@ -536,7 +598,7 @@ public class WebsocketDataHandler : MonoBehaviour
             for (int i = 0; i < f.astronautInstance.FellowAstronautsData.AllFellowAstronauts.Count; i++)
             {
                 FellowAstronaut a = f.astronautInstance.FellowAstronautsData.AllFellowAstronauts[i];
-                if (a.AstronautID == id)
+                if (a.id == id)
                 {
                     astronautToChangeIndex = i;
                     astronautToChange = a;

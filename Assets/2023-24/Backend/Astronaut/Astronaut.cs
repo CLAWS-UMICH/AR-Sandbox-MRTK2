@@ -4,7 +4,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Astronaut
 {
-    public int AstronautId;
+    public int id;
     public Messaging MessagingData;
     public Vitals VitalsData;
     public Geosamples GeosampleData;

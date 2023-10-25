@@ -8,7 +8,7 @@ public class Fake : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        astronautInstance.AstronautId = 1;
+        //astronautInstance.id = 1;
 
         /*// Create fake Messaging data
         astronautInstance.MessagingData = new Messaging();

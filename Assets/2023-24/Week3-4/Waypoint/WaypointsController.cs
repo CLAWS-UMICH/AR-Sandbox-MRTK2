@@ -71,10 +71,36 @@ public class WaypointsController : MonoBehaviour
 
     private void OnWaypointsEdited(WaypointsEditedEvent e)
     {
-        //Debug.Log("Edited");
-        //List<Waypoint> editedWaypoints = e.EditedWaypoints; // Which waypoints were edited (Look at their id's)
+        Debug.Log("Edited");
+        List<Waypoint> editedWaypoints = e.EditedWaypoints; // Which waypoints were edited (Look at their id's)
         // Update the UI to reflect the edited waypoints
+
+        foreach (Waypoint edit in editedWaypoints) {
+            if (idToButton.ContainsKey(edit.id)) {
+                GameObject button = idToButton[edit.id];
+                button.transform.Find("ID").gameObject.GetComponent<TextMeshPro>().text = "ID: " + edit.id.ToString();
+
+                if (edit.type == 0) {
+                    button.transform.Find("Type").gameObject.GetComponent<TextMeshPro>().text = "Type: Regular";
+                } else if (edit.type == 1) {
+                    button.transform.Find("Type").gameObject.GetComponent<TextMeshPro>().text = "Type: Danger";
+                } else {
+                    button.transform.Find("Type").gameObject.GetComponent<TextMeshPro>().text = "Type: Geo";
+                }
+
+            button.transform.Find("Location").gameObject.GetComponent<TextMeshPro>().text = "Location: " + "Latitude: " + edit.location.latitude.ToString() 
+            + "Longitude: " + edit.location.longitude.ToString();
+            //button.transform.Find("Location").gameObject.GetComponent<TextMeshPro>().latitude.text = "Latitude: " + edit.location.latitude.ToString();
+            //button.transform.Find("Location").gameObject.GetComponent<TextMeshPro>().longitude.text = "Longitude: " + edit.location.longitude.ToString();
+            button.transform.Find("Author").gameObject.GetComponent<TextMeshPro>().text = "Author: " + edit.author.ToString();
+
+            }
+
+            
+        }
     }
+
+    
 
     private void OnWaypointsAdded(WaypointsAddedEvent e)
     {

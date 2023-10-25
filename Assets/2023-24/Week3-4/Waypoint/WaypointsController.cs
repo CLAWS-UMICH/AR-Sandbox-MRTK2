@@ -56,9 +56,17 @@ public class WaypointsController : MonoBehaviour
 
     private void OnWaypointsDeleted(WaypointsDeletedEvent e)
     {
-        //Debug.Log("Deleted");
-        //List<Waypoint> deletedWaypoints = e.DeletedWaypoints; // Which waypoints were deleted (Look at their id's)
+        Debug.Log("Deleted");
+        List<Waypoint> deletedWaypoints = e.DeletedWaypoints; // Which waypoints were deleted (Look at their id's)
         // Update the UI to reflect the deleted waypoints
+        foreach (Waypoint currentDeletedWapoint in deletedWaypoints)
+        {
+            if (idToButton.ContainsKey(currentDeletedWapoint.id))
+            {
+                sh.GetComponent<ScrollHandler>().HandleButtonDeletion(idToButton[currentDeletedWapoint.id]);
+                idToButton.Remove(currentDeletedWapoint.id);
+            }
+        }
     }
 
     private void OnWaypointsEdited(WaypointsEditedEvent e)

@@ -16,6 +16,8 @@ public class MessagingController : MonoBehaviour
     private TextMeshPro fromText;
     private TextMeshPro toText;
     GameObject parentObject; //prefab MessageObject
+    GameObject sh;
+    private Dictionary<int, GameObject> idToButton = new Dictionary<int, GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class MessagingController : MonoBehaviour
         messagesAddedEvent = EventBus.Subscribe<MessagesAddedEvent>(OnMessagesAdded);
 
         parentObject = GameObject.Find("MessageObject");
+        sh = GameObject.Find("scrollObjects");
         msgText = parentObject.transform.Find("DisplayedMessage").gameObject.GetComponent<TextMeshPro>();
         IDText = parentObject.transform.Find("ID").gameObject.GetComponent<TextMeshPro>();
         fromText = parentObject.transform.Find("from").gameObject.GetComponent<TextMeshPro>();
@@ -55,7 +58,14 @@ public class MessagingController : MonoBehaviour
     {
         //Debug.Log("Deleted");
         List<Message> deletedMessages = e.DeletedMessages; // Which messages were deleted (Look at their id's)
-        // Update the UI to reflect the deleted messages
+        foreach (Message msg in deletedMessages)
+        {
+            if (idToButton.ContainsKey(msg.id))
+            {
+                sh.GetComponent<ScrollHandler>().HandleButtonDeletion(idToButton[msg.id]);
+                idToButton.Remove(msg.id);
+            }
+        }
     }
 
     private void OnMessagesEdited(MessagesEditedEvent e)
@@ -75,6 +85,8 @@ public class MessagingController : MonoBehaviour
             msgText.text = msg.message;
             fromText.text = msg.from.ToString();
             toText.text = msg.sent_to.ToString();
+            GameObject newButton = sh.GetComponent<ScrollHandler>().HandleAddingButton(parentObject);
+            idToButton.Add(msg.id, newButton);
         }
     }
 }

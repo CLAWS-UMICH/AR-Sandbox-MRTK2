@@ -2,4 +2,5 @@ feature/this-is-the-name-of-a-feature
 feature/aditya-menon-weekly-task-week2
 feature/derek-yang
 feature/emily-song-wk1
+feature/waypoints
 feature/wen_vitals2

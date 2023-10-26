@@ -77,6 +77,7 @@ public class WebSocketClient : MonoBehaviour
 
     public void HandleJsonMessage(string jsonData)
     {
+        Debug.Log(jsonData);
         // Deserialize the JSON into JsonMessage class
         JsonMessage jsonMessage = JsonUtility.FromJson<JsonMessage>(jsonData);
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class MessagingController : MonoBehaviour
 {
@@ -11,7 +12,10 @@ public class MessagingController : MonoBehaviour
     private Subscription<MessagesAddedEvent> messagesAddedEvent;
 
     private TextMeshPro msgText;
-    GameObject parentObject;
+    private TextMeshPro IDText;
+    private TextMeshPro fromText;
+    private TextMeshPro toText;
+    GameObject parentObject; //prefab MessageObject
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +26,12 @@ public class MessagingController : MonoBehaviour
 
         parentObject = GameObject.Find("MessageObject");
         msgText = parentObject.transform.Find("DisplayedMessage").gameObject.GetComponent<TextMeshPro>();
+        IDText = parentObject.transform.Find("ID").gameObject.GetComponent<TextMeshPro>();
+        fromText = parentObject.transform.Find("from").gameObject.GetComponent<TextMeshPro>();
+        toText = parentObject.transform.Find("sentTo").gameObject.GetComponent<TextMeshPro>();
         msgText.text = "no current message";
+        IDText.text = "ID: N/A";
+
     }
 
     void OnDestroy()
@@ -60,7 +69,12 @@ public class MessagingController : MonoBehaviour
     {
         //Debug.Log("Added");
         List<Message> newAddedMessages = e.NewAddedMessages; // Which messages are new
-        msgText.text = newAddedMessages[0].message;
-        // Update the UI to reflect the new messages
+        foreach (Message msg in newAddedMessages)
+        {
+            IDText.text = "ID: " + msg.id.ToString();
+            msgText.text = msg.message;
+            fromText.text = msg.from.ToString();
+            toText.text = msg.sent_to.ToString();
+        }
     }
 }

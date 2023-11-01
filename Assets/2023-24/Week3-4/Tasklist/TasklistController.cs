@@ -13,21 +13,28 @@ public class TasklistController : MonoBehaviour
     private Subscription<TasksDeletedEvent> tasksDeletedEvent;
     private Subscription<TasksEditedEvent> tasksEditedEvent;
     private Subscription<TasksAddedEvent> tasksAddedEvent;
-    private ScrollHandler scrollHandlerInstance;
+    private ScrollHandler scrollHandlerInstance; // scrollHandler
     
     public GameObject preFab; //preFab for add Task
-    public List<GameObject> listAllTasks; // all tasks
-    public List<int> taskIDs; // all ids
+    public TextMeshPro id, title, description, shared_with, status; // textmeshpro
+    public Dictionary<int, GameObject> taskWithID = new Dictionary<int, GameObject>(); // map with task and id
+
 
     // Start is called before the first frame update
     void Start()
     {
         // Subscribe to the events
+        id = preFab.transform.Find("ID").gameObject.GetComponent<TextMeshPro>();
+        status = preFab.transform.Find("Status").gameObject.GetComponent<TextMeshPro>();
+        title = preFab.transform.Find("Title").gameObject.GetComponent<TextMeshPro>();
+        description = preFab.transform.Find("Description").gameObject.GetComponent<TextMeshPro>();
+        shared_with = preFab.transform.Find("SharedWith").gameObject.GetComponent<TextMeshPro>();
+
         tasksDeletedEvent = EventBus.Subscribe<TasksDeletedEvent>(OnTasksDeleted);
         tasksEditedEvent = EventBus.Subscribe<TasksEditedEvent>(OnTasksEdited);
         tasksAddedEvent = EventBus.Subscribe<TasksAddedEvent>(OnTasksAdded);
 
-        scrollHandlerInstance = GetComponent<ScrollHandler>();
+        scrollHandlerInstance = GameObject.Find("ScrollObjects").GetComponent<ScrollHandler>();
     }
 
     void OnDestroy()
@@ -53,10 +60,11 @@ public class TasklistController : MonoBehaviour
         List<TaskObj> deletedWaypoints = e.DeletedTasks; // Which waypoints were deleted (Look at their id's)
         foreach (TaskObj oneTask in deletedWaypoints)
         {
-            int index = taskIDs.BinarySearch(oneTask.id);
-            scrollHandlerInstance.HandleButtonDeletion(listAllTasks[index]);
-            listAllTasks.RemoveAt(index);
-            taskIDs.RemoveAt(index);
+            if (taskWithID.ContainsKey(oneTask.id))
+            {
+                scrollHandlerInstance.HandleButtonDeletion(taskWithID[oneTask.id]);
+                taskWithID.Remove(oneTask.id);
+            }
         }
         // Update the UI to reflect the deleted waypoints
     }
@@ -67,15 +75,17 @@ public class TasklistController : MonoBehaviour
         List<TaskObj> editedWaypoints = e.EditedTasks; // Which waypoints were edited (Look at their id's)
         foreach (TaskObj oneTask in editedWaypoints)
         {
-            int index = taskIDs.BinarySearch(oneTask.id);
+            if (taskWithID.ContainsKey(oneTask.id))
+            {
+                GameObject editButton = taskWithID[oneTask.id];
+                editButton.transform.Find("ID").gameObject.GetComponent<TextMeshPro>().text = "ID: " + oneTask.id.ToString();
+                editButton.transform.Find("status").gameObject.GetComponent<TextMeshPro>().text = "Status: " + oneTask.status.ToString();
+                editButton.transform.Find("title").gameObject.GetComponent<TextMeshPro>().text = "Title" + oneTask.title.ToString();
+                editButton.transform.Find("description").gameObject.GetComponent<TextMeshPro>().text = "Description" + oneTask.description.ToString();
+                editButton.transform.Find("shared_With").gameObject.GetComponent<TextMeshPro>().text = "Shared With" + oneTask.shared_with.ToString();
 
-            GameObject button = GameObject.Find(listAllTasks[index].ToString());
-
-            button.transform.Find("ID").gameObject.GetComponent<TextMeshPro>().text = oneTask.id.ToString();
-            button.transform.Find("status").gameObject.GetComponent<TextMeshPro>().text = oneTask.status.ToString();
-            button.transform.Find("title").gameObject.GetComponent<TextMeshPro>().text = oneTask.title;
-            button.transform.Find("description").gameObject.GetComponent<TextMeshPro>().text = oneTask.description;
-            button.transform.Find("shared_With").gameObject.GetComponent<TextMeshPro>().text = oneTask.shared_with.ToString();
+            }
+            
         }
         // Update the UI to reflect the edited waypoints
     }
@@ -87,18 +97,14 @@ public class TasklistController : MonoBehaviour
         List<TaskObj> newAddedWaypoints = e.NewAddedTasks; // Which waypoints are new
         foreach (TaskObj oneTask in newAddedWaypoints)
         {
-            GameObject newTask = Instantiate(preFab, scrollHandlerInstance.transform);
+            id.text = "ID: " + oneTask.id.ToString();
+            status.text = "Status: " + oneTask.status.ToString();
+            title.text = "Title: " + oneTask.title.ToString();
+            description.text = "Description: " + oneTask.description.ToString();
+            shared_with.text = "Shared With: " + oneTask.shared_with.ToString();
 
-            newTask.transform.Find("ID").gameObject.GetComponent<TextMeshPro>().text = oneTask.id.ToString();
-            newTask.transform.Find("status").gameObject.GetComponent<TextMeshPro>().text = oneTask.status.ToString();
-            newTask.transform.Find("title").gameObject.GetComponent<TextMeshPro>().text = oneTask.title;
-            newTask.transform.Find("description").gameObject.GetComponent<TextMeshPro>().text = oneTask.description;
-            newTask.transform.Find("shared_With").gameObject.GetComponent<TextMeshPro>().text = oneTask.shared_with.ToString();
-
-            scrollHandlerInstance.Fix();
-
-            listAllTasks.Add(newTask);
-            taskIDs.Add(oneTask.id);
+            GameObject newButton = scrollHandlerInstance.HandleAddingButton(preFab);
+            taskWithID.Add(oneTask.id, newButton);
         }
         //Update the UI to reflect the new waypoints
     }

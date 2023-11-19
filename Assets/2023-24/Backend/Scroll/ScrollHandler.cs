@@ -102,10 +102,25 @@ public class ScrollHandler : MonoBehaviour
             }
             else
             {
-                yOffset = (i - top) * -spacing; // Adjust y-offset for vertical layout
+                if (i == 0)
+                {
+                    yOffset = (i - top) * -spacing; // Adjust y-offset for vertical layout
+                    // this is just 0
+                }
+                else
+                {
+                    yOffset = allButtons[i - 1].transform.position.y
+                        - (allButtons[i - 1].GetComponent<BoxCollider>().size.y / 2
+                            * allButtons[i - 1].transform.localScale.y) 
+                        - (allButtons[i].GetComponent<BoxCollider>().size.y / 2
+                            * allButtons[i].transform.localScale.y)
+                        - spacing;
+                    Debug.Log(yOffset);
+                }
             }
 
-            Vector3 newPosition = parentTransform.position + new Vector3(xOffset, yOffset, 0f);
+            // Vector3 newPosition = parentTransform.position + new Vector3(xOffset, yOffset, 0f);
+            Vector3 newPosition = new Vector3(xOffset, yOffset, 0f);
             allButtons[i].transform.position = newPosition; // Move each button to the new position
         }
     }
@@ -233,6 +248,7 @@ public class ScrollHandler : MonoBehaviour
         Scroll(-1);
     }
 
+    [ContextMenu("Func FixLayout")]
     public void Fix()
     {
         CollectAllButtons();

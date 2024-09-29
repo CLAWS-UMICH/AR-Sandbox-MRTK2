@@ -63,5 +63,6 @@ EditorBuildSettings:
     path: Assets/Samples/Mixed Reality Toolkit Examples/2.8.2/Demos - Solvers/Scenes/SurfaceMagnetismSpatialAwarenessExample.unity
     guid: 8feae87497f549c4e8dc08a6e4b7b15c
   m_configObjects:
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: ba72f879d528f4f4f9b72c77600e6c3a, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 234a5619fe89cfd4790a8ae9a379e44e, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: ee8b604c09565a644be416067e8f7150, type: 2}

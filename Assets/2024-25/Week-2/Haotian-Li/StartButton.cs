@@ -52,13 +52,13 @@ public class StartButton : MonoBehaviour
     public void StartB()
     {
         isRunning = true;
-        Debug.Log(isRunning);
+        Debug.Log("test");
     }
 
     public void StopB()
     {
         isRunning = false;
-        Debug.Log(isRunning);
+        Debug.Log("test1");
     }
 
     public void ResetB()

@@ -1,11 +1,21 @@
+//Ritij Jutur
+//10/19/2024
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 public class TaskListController : MonoBehaviour
 {
     private Subscription<TasksDeletedEvent> tasksDeletedEvent;
     private Subscription<TasksEditedEvent> tasksEditedEvent;
     private Subscription<TasksAddedEvent> tasksAddedEvent;
+
+    public GameObject taskListButtonPrefab;
+    private TextMeshPro id, status, description, shared_with, title;
+
+    private Dictionary<int, GameObject> idToTask = new Dictionary<int, GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {

@@ -30,11 +30,8 @@ public class ClockController : MonoBehaviour
             StopCoroutine(clockCoroutine);
             clockCoroutine = null;
         }
-    }
-
-    void OnEnable()
-    {
-        text.text = "Select Option";
+        text.text = "Select";
+        clockText.text = "00:00:00 PM";
     }
 
     public void EasternStart()

@@ -325,6 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866379cf798054a5d8d99b8f75a1b7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  webSocketUrl: ws://localhost:8080
 --- !u!114 &1091344167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a7a7798d67b4cf1a59cbbbcf7e1029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 0
 --- !u!114 &1091344168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +351,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ceaa7242903f4b8b94fbcf676427201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  astronautInstance:
+    id: 0
+    MessagingData:
+      AllMessages: []
+    VitalsData:
+      heart_rate: 0
+      oxygen: 0
+      suit_temp: 0
+      blood_pressure: 0
+    GeosampleData:
+      AllGeosamples: []
+    WaypointData:
+      AllWaypoints: []
+    TasklistData:
+      AllTasks: []
+    AlertData:
+      AllAlerts: []
+    BreadCrumbData:
+      AllCrumbs: []
+    location:
+      latitude: 0
+      longitude: 0
+      id: 0
+    currently_navigating: 0
+    inDanger: 0
+    color: 
+    FellowAstronautsData:
+      AllFellowAstronauts: []
 --- !u!4 &1091344169
 Transform:
   m_ObjectHideFlags: 0
@@ -373,10 +403,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1091344165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4059c62e9c83db64da23d19cbaae765b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e1c9a1c215bb41a99f27a8d849360b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointPrefab: {fileID: 290618205284878216, guid: 4d2935981184d6b48a2f4444287fd501, type: 3}
 --- !u!1 &1384364192
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +435,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5a2a2231b6e45a6b1e2ff8e4da744f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spacing: 0.1
+  buttonsEnabledCount: 3
+  layoutType: 0
 --- !u!4 &1384364194
 Transform:
   m_ObjectHideFlags: 0
@@ -730,6 +762,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!1 &1888537562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1888537563}
+  m_Layer: 0
+  m_Name: ButtonList
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1888537563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888537562}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1862, y: -0.0141, z: 0.3379}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -741,3 +804,4 @@ SceneRoots:
   - {fileID: 1536358461}
   - {fileID: 1091344169}
   - {fileID: 1384364194}
+  - {fileID: 1888537563}

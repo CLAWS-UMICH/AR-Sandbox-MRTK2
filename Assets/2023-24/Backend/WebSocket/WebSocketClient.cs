@@ -18,6 +18,9 @@ public class WebSocketClient : MonoBehaviour
         dataHandler = GetComponent<WebsocketDataHandler>();
         ws = new WebSocket(webSocketUrl);
         ws.OnMessage += OnWebSocketMessage;
+        ws.OnOpen += (sender, e) => Debug.Log("WebSocket connected.");
+        ws.OnError += (sender, e) => Debug.LogError("WebSocket error: " + e.Message);
+        ws.OnClose += (sender, e) => Debug.Log("WebSocket closed with code: " + e.Code + " reason: " + e.Reason);
         ws.Connect();
     }
 
@@ -50,6 +53,7 @@ public class WebSocketClient : MonoBehaviour
 
     private void OnWebSocketMessage(object sender, MessageEventArgs e)
     {
+        Debug.Log("testing message: ");
         if (e.Data != null)
         {
             try

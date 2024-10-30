@@ -19,6 +19,7 @@ public class WaypointController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("start");
         // Subscribe to the events
         waypointsDeletedEvent = EventBus.Subscribe<WaypointsDeletedEvent>(OnWaypointsDeleted);
         waypointsEditedEvent = EventBus.Subscribe<WaypointsEditedEvent>(OnWaypointsEdited);
@@ -46,7 +47,7 @@ public class WaypointController : MonoBehaviour
 
     private void OnWaypointsDeleted(WaypointsDeletedEvent e)
     {
-        //Debug.Log("Deleted");
+        Debug.Log("Deleted");
         List<Waypoint> deletedWaypoints = e.DeletedWaypoints; // Which waypoints were deleted (Look at their id's)
 
         // Update the UI to reflect the deleted waypoints
@@ -65,7 +66,7 @@ public class WaypointController : MonoBehaviour
 
     private void OnWaypointsEdited(WaypointsEditedEvent e)
     {
-        //Debug.Log("Edited");
+        Debug.Log("Edited");
         List<Waypoint> editedWaypoints = e.EditedWaypoints; // Which waypoints were edited (Look at their id's)
 
         // Update the UI to reflect the edited waypoints
@@ -84,7 +85,7 @@ public class WaypointController : MonoBehaviour
 
     private void OnWaypointsAdded(WaypointsAddedEvent e)
     {
-        //Debug.Log("Added");
+        Debug.Log("Added");
         List<Waypoint> newAddedWaypoints = e.NewAddedWaypoints; // Which waypoints are new
 
         // Update the UI to reflect the new waypoints
@@ -101,13 +102,17 @@ public class WaypointController : MonoBehaviour
         }
     }
 
-    //private GameObject FindButtonByID(int id)
-    //{
-    //    foreach (Transform child in buttonList.transform)
-    //    {
-            
-    //    }
-    //}
+    private GameObject FindButtonByID(int id)
+    {
+        foreach (Transform child in buttonList.transform)
+        {
+            if (child.name == "ID" && child.GetComponent<Text>().text == id.ToString())
+            {
+                return child.gameObject;
+            }
+        }
+        return null;
+    }
 
     private void UpdateButtonText(GameObject button, Waypoint waypoint)
     {

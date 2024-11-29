@@ -13,7 +13,7 @@ public class TimerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        text = GameObject.Find("Text").GetComponent<TextMeshPro>();
+        text = GameObject.Find("TextTimer").GetComponent<TextMeshPro>();
         text.text = "00:00:00";
     }
 
